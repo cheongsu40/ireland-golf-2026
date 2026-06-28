@@ -237,6 +237,33 @@ a{color:inherit}
 .wxsum b{color:var(--cream);font-weight:700}
 .wxsum b:first-child{display:block;font-family:'Playfair Display',serif;font-size:16px;color:var(--txt);margin-bottom:7px}
 
+/* ---------- flights ---------- */
+.arrsum{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:6px}
+.arrcol{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:13px}
+.arrcol .ah{font-size:12px;color:var(--dim);margin-bottom:8px}
+.arrcol .ah b{font-family:'Playfair Display',serif;font-size:22px;color:var(--emer);margin-right:5px}
+.arrcol .al{font-size:12.5px;color:var(--txt);line-height:1.6}
+.arrcol .al .you{color:var(--gold2);font-weight:800}
+.arrcol .an{font-size:10.5px;color:var(--dim2);margin-top:8px;line-height:1.4}
+.flcard{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 13px;margin-bottom:9px}
+.flcard.mine{border-color:var(--gold);background:linear-gradient(135deg,rgba(216,177,90,.1),transparent)}
+.flcard .fl-h{display:flex;align-items:center;gap:9px;margin-bottom:10px;flex-wrap:wrap}
+.flcard .fl-h .av{flex:0 0 28px;height:28px;border-radius:50%;background:var(--gradg);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:11px;color:#06120b}
+.flcard.mine .fl-h .av{background:var(--grad)}
+.flcard .fl-h b{font-size:14.5px;font-weight:700}
+.flcard .fl-you{font-size:9px;font-weight:800;letter-spacing:.1em;color:var(--gold);background:rgba(216,177,90,.14);border:1px solid rgba(216,177,90,.4);border-radius:999px;padding:2px 7px}
+.fl-arr{margin-left:auto;display:flex;align-items:baseline;gap:6px;text-align:right}
+.fl-arr .ap{font-family:'Playfair Display',serif;font-weight:800;font-size:17px;color:var(--emer)}
+.fl-arr .apx{font-size:10.5px;color:var(--dim2)}
+.fl-arr .at{font-size:11px;color:var(--gold);font-weight:600;display:block;width:100%}
+.fl-arr.tbd{font-size:11.5px;color:var(--dim2);font-style:italic}
+.fl-row{display:flex;gap:10px;align-items:flex-start;padding:5px 0}
+.fl-row .fl-lab{flex:0 0 40px;font-size:9.5px;font-weight:800;letter-spacing:.1em;color:var(--dim2);padding-top:3px}
+.fl-row .fl-lab.ret{color:var(--sand)}
+.fl-legs{flex:1;display:flex;flex-wrap:wrap;align-items:center;gap:6px;font-size:12px}
+.fl-legs .leg{background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:4px 8px;color:var(--txt);white-space:nowrap}
+.fl-legs .ar{color:var(--dim2);font-weight:700}
+
 /* ---------- checklist ---------- */
 .tprog{margin:6px 0 16px}
 .tprog .bar{height:9px;border-radius:99px;background:var(--card);border:1px solid var(--line);overflow:hidden}
@@ -312,18 +339,18 @@ const LADS = ['Ben','Christian','Davis','Domenic','Fraser','Nate','Nick','Patric
 
 /* courses keyed by id. g1/g2 = banner gradient stops */
 const COURSE = {
- spanish:{name:'Spanish Point',loc:'Miltown Malbay, Co. Clare',rank:'WARM-UP',rankl:'twilight',
-   g1:'#1e6e8c',g2:'#0d3b4d',meta:['Old links','Twilight round','Sunset 9:50pm'],
+ spanish:{name:'Spanish Point',loc:'Miltown Malbay, Co. Clare',rank:'EST. 1896',rankl:'seaside links',
+   g1:'#1e6e8c',g2:'#0d3b4d',meta:['Old-world links','Twilight round','Sunset 9:50pm'],
    quote:'First swings on Irish soil — a relaxed evening links to shake off the flights.',
    note:'A charming old-school links right on the Atlantic, ten minutes from Lahinch. Long July daylight means a full round well into the evening. Loosen up, soak it in, and ease into the week.',
    web:'https://spanishpointgolf.com', holes:[]},
- doonbeg:{name:'Trump Doonbeg',loc:'Doonbeg, Co. Clare',rank:'#14',rankl:'in Ireland',
-   g1:'#2b6b46',g2:'#123a24',meta:['Greg Norman','Links','Par 72'],
+ doonbeg:{name:'Trump Doonbeg',loc:'Doonbeg, Co. Clare',rank:'#12',rankl:'in Ireland',
+   g1:'#2b6b46',g2:'#123a24',meta:['Greg Norman design','Par 72','Trump links'],
    quote:'Norman carved it through the dunes; Trump\'s investment is what saved it.',
    note:'Originally a Greg Norman design. When the resort was struggling, Trump bought it and poured money in — locals talk about the real sense of relief once that investment landed. Look out for the famous holdout cottage near the dunes, owned by the same family for generations who wouldn\'t sell.',
    web:'https://www.trumphotels.com/doonbeg', holes:[]},
- lahinch:{name:'Lahinch',loc:'Lahinch, Co. Clare',rank:'#2',rankl:'in Ireland',
-   g1:'#3a7d3a',g2:'#16401b',meta:['Old Course','A. MacKenzie 1920s','Blind shots'],
+ lahinch:{name:'Lahinch',loc:'Lahinch, Co. Clare',rank:'#32',rankl:'in the World',
+   g1:'#3a7d3a',g2:'#16401b',meta:['#4 in Ireland','GOLF Mag · Top 100 World','A. MacKenzie 1920s','Blind shots'],
    quote:'“The St. Andrews of Ireland.” A surf town wrapped around a links of pure character.',
    note:'Alister MacKenzie remodelled it in the 1920s. Loads of blind tee shots — embrace the chaos.',
    holes:[
@@ -333,13 +360,13 @@ const COURSE = {
      ['13','Driveable','Short par 4 you can have a go at — stay left.']
    ],
    web:'https://www.lahinchgolf.com'},
- oldhead:{name:'Old Head',loc:'Kinsale, Co. Cork',rank:'#7',rankl:'in Ireland',
-   g1:'#2f6e7a',g2:'#103740',meta:['Own peninsula','Clifftop','The lighthouse'],
+ oldhead:{name:'Old Head',loc:'Kinsale, Co. Cork',rank:'#72',rankl:'in the World',
+   g1:'#2f6e7a',g2:'#103740',meta:['Golf Digest World 100','#25 in Ireland','Clifftop peninsula','The lighthouse'],
    quote:'A links on its own Atlantic headland, ringed by cliffs, crowned by a lighthouse.',
    note:'Genuinely one of the most dramatic plots of golfing land on earth — a peninsula jutting into the ocean with the old lighthouse standing guard. Cliff carries on nearly every hole. Bucket-list stuff.',
    web:'https://www.oldhead.com', holes:[]},
- tralee:{name:'Tralee',loc:'Barrow, Co. Kerry',rank:'#12',rankl:'in Ireland',
-   g1:'#356b3f',g2:'#13381d',meta:['Arnold Palmer','“Back 9 by God”','Par 71'],
+ tralee:{name:'Tralee',loc:'Barrow, Co. Kerry',rank:'#89',rankl:'in the World',
+   g1:'#356b3f',g2:'#13381d',meta:['Golf Digest World 100','#15 in Ireland','Arnold Palmer','“Back 9 by God”'],
    quote:'Arnold Palmer designed the front. He said God designed the back nine.',
    note:'Palmer\'s first European design. The front nine is grand — but the back nine, routed through towering dunes above the beach, is the stuff of legend.',
    holes:[
@@ -350,10 +377,10 @@ const COURSE = {
      ['16','Shipwreck','Hero carry off the tee. Walk back from the green and look — it\'s even better from behind.']
    ],
    web:'https://www.traleegolfclub.com'},
- bally:{name:'Ballybunnion',loc:'Ballybunnion, Co. Kerry',rank:'#1',rankl:'in Ireland',
-   g1:'#7a5a1e',g2:'#3a2a0c',meta:['#10 in the World','Old Course','The crown jewel'],
+ bally:{name:'Ballybunnion',loc:'Ballybunnion, Co. Kerry',rank:'#29',rankl:'in the World',
+   g1:'#7a5a1e',g2:'#3a2a0c',meta:['#3 in Ireland','GOLF Mag · Top 100 World','The crown jewel'],
    quote:'Tom Watson called Ballybunnion the greatest golf course in the world.',
-   note:'#1 in Ireland, top-10 on the planet. Famous for making you manufacture shots — it plays differently every single time. The graveyard sits right of the 1st tee to welcome you in.',
+   note:'A genuine world top-30 links and #3 in Ireland. Famous for making you manufacture shots — it plays differently every single time. The graveyard sits right of the 1st tee to welcome you in.',
    holes:[
      ['1','The graveyard','Cemetery hugs the right side of the opening hole. No pressure.'],
      ['8','The hidden green','A cool little par 3 with the green tucked away out of sight.'],
@@ -361,20 +388,20 @@ const COURSE = {
      ['17','Cut the corner','Risk-reward — bite off as much of the dogleg as you dare.']
    ],
    web:'https://ballybuniongolfclub.com'},
- dooks:{name:'Dooks',loc:'Glenbeigh, Co. Kerry',rank:'EST. 1889',rankl:'one of the oldest',
-   g1:'#557a2e',g2:'#243a12',meta:['Ring of Kerry','Compact links','The toad crest'],
+ dooks:{name:'Dooks',loc:'Glenbeigh, Co. Kerry',rank:'#23',rankl:'in Ireland',
+   g1:'#557a2e',g2:'#243a12',meta:['Est. 1889','Ring of Kerry','The toad crest'],
    quote:'Built for British soldiers on a sporting grant — and it still wears a natterjack toad on its crest.',
    note:'One of Ireland\'s oldest clubs, originally a 9-holer laid out for soldiers garrisoned nearby. Big and vast it is not — it\'s tight and compact, a bit like Sheep Ranch at Bandon. A breather day with serious Ring of Kerry views, and the only crest in golf featuring a toad.',
    web:'https://www.dooks.com', holes:[]},
- waterville:{name:'Waterville',loc:'Ring of Kerry, Co. Kerry',rank:'#4',rankl:'in Ireland',
-   g1:'#26607a',g2:'#0e3240',meta:['Tip of the Ring','Payne Stewart','Recently renovated'],
+ waterville:{name:'Waterville',loc:'Ring of Kerry, Co. Kerry',rank:'#52',rankl:'in the World',
+   g1:'#26607a',g2:'#0e3240',meta:['Golf Digest World 100','#7 in Ireland','Payne Stewart','Recently renovated'],
    quote:'Tiger played here in \'99. Payne Stewart loved it so much they made him honorary captain.',
    note:'Out at the very tip of the Ring of Kerry. Recent renovations have it gleaming — more carved-out and clearer than the older links, closer in feel to a top US course or Bandon. A fitting finale.',
    web:'https://watervillegolflinks.ie', holes:[]},
- doolin:{name:'Doolin Pitch & Putt',loc:'Doolin, Co. Clare',rank:'OPTIONAL',rankl:'just for fun',
+ doolin:{name:'Doolin Pitch & Putt',loc:'Doolin, Co. Clare',rank:'P&P',rankl:'by the cliffs',
    g1:'#6a6a2e',g2:'#33330f',meta:['Cliffs of Moher','1 club + a putter','Pure craic'],
    quote:'One club, one putter, and the Cliffs of Moher as your backdrop.',
-   note:'Right beside the Cliffs of Moher. Grab a single club and a putter and have a laugh before the real golf starts. Totally optional, totally worth it.',
+   note:'Right beside the Cliffs of Moher. Grab a single club and a putter and have a laugh before the real golf starts — a proper bit of craic with the best view in Clare.',
    web:'https://www.google.com/maps/search/Doolin+pitch+and+putt', holes:[]}
 };
 
@@ -410,7 +437,7 @@ const DAYS = [
    {t:'10:15',ap:'AM',e:'🛬',k:'travel',ti:'Land at Shannon (SNN)',su:'United crew lands ~10:15–11:10am · Ben into Dublin · then immigration, bags & rental cars'},
    {t:'1:00',ap:'PM',e:'🥪',k:'food',ti:'Lunch near the airport',su:'Fuel up before the drive west to the coast'},
    {t:'2:30',ap:'PM',e:'🚗',k:'travel',ti:'Drive to Doolin',su:'Up the Clare coast toward the Cliffs of Moher'},
-   {t:'3:30',ap:'PM',e:'⛳',k:'golf',ti:'Doolin Pitch & Putt',su:'Optional · one club + a putter by the cliffs',course:'doolin'},
+   {t:'3:30',ap:'PM',e:'⛳',k:'golf',ti:'Doolin Pitch & Putt',su:'One club + a putter by the Cliffs of Moher',course:'doolin'},
    {t:'7:16',ap:'PM',e:'🌅',k:'golf',ti:'Spanish Point',su:'Twilight links · 12-min intervals · sunset 9:50pm',course:'spanish'},
    {t:'9:30',ap:'PM',e:'🍺',k:'food',ti:'Dinner & first pints',su:'Then back to the Lahinch Coast Hotel'}
   ]},
@@ -483,9 +510,9 @@ const ROOMS = {
    ['Deluxe double',['Ryan']]
  ]},
  killarney:{name:'Killarney — Plaza Hotel + “Mountain Dew” Airbnb',dates:'Wed Jul 8 → Sat Jul 11 · 3 nights',rooms:[
-   ['Plaza · family rm',['Nick','Davis']],
-   ['Plaza · family rm',['Nate','Tanner']],
-   ['Plaza · family rm',['Christian','Tate']],
+   ['Plaza · room',['Nick','Davis']],
+   ['Plaza · room',['Nate','Tanner']],
+   ['Plaza · room',['Christian','Tate']],
    ['Airbnb · room',['Domenic','Ben']],
    ['Airbnb · room',['Ryan']],
    ['Airbnb · room',['Fraser']]
@@ -538,7 +565,7 @@ function myGroup(course){ // returns group index (0-2) you're in, or -1
 }
 
 /* ================= TABS ================= */
-const TABS=[['sched','📅','Schedule'],['courses','⛳','Courses'],['map','🗺','Map'],['weather','🌤','Weather'],['pack','🎒','Pack']];
+const TABS=[['sched','📅','Schedule'],['courses','⛳','Courses'],['map','🗺','Map'],['weather','🌤','Weather'],['flights','✈️','Flights']];
 function renderTabs(){
   const w=$('#tabs');w.innerHTML='';
   TABS.forEach(([id,e,l])=>{
@@ -691,54 +718,74 @@ function renderCourses(){
 
 /* ================= MAP ================= */
 let mapSel=null;
+/* Ireland coastline, [lat,lon] clockwise from Malin Head — simplified but recognisable */
+const IRELAND=[
+ [55.38,-7.37],[55.24,-7.18],[55.18,-6.97],[55.21,-6.52],[55.18,-6.07],[54.98,-5.95],
+ [54.72,-5.80],[54.66,-5.53],[54.49,-5.46],[54.30,-5.44],[54.25,-5.88],[54.05,-6.06],
+ [53.93,-6.07],[53.72,-6.24],[53.49,-6.15],[53.31,-6.07],[53.10,-6.05],[52.97,-6.02],
+ [52.79,-6.14],[52.33,-6.46],[52.17,-6.37],[52.20,-6.70],[52.12,-6.93],[52.16,-7.15],
+ [52.09,-7.62],[51.95,-7.85],[51.79,-8.27],[51.71,-8.43],[51.60,-8.53],[51.62,-8.80],
+ [51.56,-8.94],[51.53,-9.28],[51.45,-9.80],[51.62,-10.06],[51.74,-9.78],[51.80,-10.15],
+ [51.93,-10.30],[52.02,-9.95],[52.07,-10.27],[52.10,-10.46],[52.27,-10.18],[52.42,-9.93],
+ [52.52,-9.64],[52.57,-9.93],[52.70,-9.60],[52.86,-9.43],[52.97,-9.43],[53.13,-9.29],
+ [53.27,-9.05],[53.23,-9.65],[53.49,-10.14],[53.62,-9.80],[53.76,-9.92],[53.88,-9.55],
+ [54.00,-10.18],[54.15,-9.92],[54.32,-9.90],[54.27,-9.20],[54.30,-8.50],[54.49,-8.42],
+ [54.62,-8.79],[54.72,-8.42],[54.80,-8.55],[54.99,-8.54],[55.15,-8.30],[55.23,-7.99],
+ [55.28,-7.64]
+];
+const MAP_W=304, MAP_H=392;
+const MAP_FRAME={lo0:-10.72,lo1:-5.18,la0:51.28,la1:55.56};
 function project(la,lo,W,H){
-  const lo0=-10.45,lo1=-8.35,la0=51.45,la1=53.10;
-  const x=(lo-lo0)/(lo1-lo0)*W;
-  const y=(la1-la)/(la1-la0)*H;
-  return [x,y];
+  W=W||MAP_W;H=H||MAP_H;
+  const f=MAP_FRAME;
+  return [(lo-f.lo0)/(f.lo1-f.lo0)*W,(f.la1-la)/(f.la1-f.la0)*H];
 }
 function renderMap(){
   const c=$('#content');c.innerHTML='';
-  c.appendChild(el('div','dsub','Eight links down the Wild Atlantic Way. Numbered in play order — tap a pin or a row.')).style.padding='4px 2px 12px';
-  const W=340,H=430;
+  c.appendChild(el('div','dsub','Eight links along the southwest coast — all of Ireland for scale. Numbered in play order; tap a pin or a row.')).style.padding='4px 2px 12px';
+  const W=MAP_W,H=MAP_H;
   let svg=`<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">
    <defs>
-     <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
-       <stop offset="0" stop-color="#0c2230"/><stop offset="1" stop-color="#0a1a22"/>
-     </linearGradient>
+     <linearGradient id="sea" x1="0" y1="0" x2="0.3" y2="1">
+       <stop offset="0" stop-color="#0c2433"/><stop offset="1" stop-color="#091820"/></linearGradient>
      <linearGradient id="land" x1="0" y1="0" x2="1" y2="1">
-       <stop offset="0" stop-color="#14271a"/><stop offset="1" stop-color="#1c331f"/>
-     </linearGradient>
+       <stop offset="0" stop-color="#1a3320"/><stop offset="0.6" stop-color="#16291a"/><stop offset="1" stop-color="#122115"/></linearGradient>
+     <radialGradient id="sw" cx="0.32" cy="0.78" r="0.32">
+       <stop offset="0" stop-color="#3fae6f" stop-opacity="0.22"/><stop offset="1" stop-color="#3fae6f" stop-opacity="0"/></radialGradient>
+     <filter id="ish" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.45"/></filter>
    </defs>
    <rect width="${W}" height="${H}" fill="url(#sea)"/>`;
-  // stylised SW Ireland landmass (decorative, peninsulas to the SW)
-  svg+=`<path d="M ${W} 70 L 250 64 Q 215 70 205 95 L 235 120 Q 250 140 235 150 L 150 150
-     Q 120 150 132 172 L 196 188 Q 214 196 196 206 L 96 206 Q 70 206 86 226 L 168 240
-     Q 184 248 168 258 L 70 262 Q 44 264 60 282 L 150 300 L 30 300 L 18 322 L 132 330
-     Q 96 348 150 352 L ${W} 360 L ${W} ${H} L 0 ${H} L 0 0 L ${W} 0 Z"
-     fill="url(#land)" stroke="#2c4730" stroke-width="1.2" opacity=".95"/>`;
-  // route line in play order through course pins
-  const pts=COURSE_ORDER.map(id=>project(GEO[id].la,GEO[id].lo,W,H));
-  svg+=`<polyline points="${pts.map(p=>p.join(',')).join(' ')}" fill="none" stroke="#d8b15a" stroke-width="1.4" stroke-dasharray="3 4" opacity=".55"/>`;
-  // hotel/airport pins
-  Object.values(HOTELS_GEO).forEach(h=>{const[x,y]=project(h.la,h.lo,W,H);
-    svg+=`<g><rect x="${x-3}" y="${y-3}" width="6" height="6" rx="1.5" fill="#c9b07c" opacity=".9"/>
-      <text x="${x+7}" y="${y+3}" font-size="7" fill="#c9b07c" font-family="Outfit" font-weight="700">${h.n}</text></g>`;
+  // faint lat/long grid
+  for(let gl=-10;gl<=-5;gl++){const x=project(54,gl)[0];svg+=`<line x1="${x.toFixed(1)}" y1="0" x2="${x.toFixed(1)}" y2="${H}" stroke="#16323f" stroke-width="0.5"/>`;}
+  for(let ga=52;ga<=55;ga++){const y=project(ga,-8)[1];svg+=`<line x1="0" y1="${y.toFixed(1)}" x2="${W}" y2="${y.toFixed(1)}" stroke="#16323f" stroke-width="0.5"/>`;}
+  // island
+  const ip=IRELAND.map((p,i)=>{const[x,y]=project(p[0],p[1]);return (i?'L':'M')+x.toFixed(1)+' '+y.toFixed(1);}).join(' ')+' Z';
+  svg+=`<path d="${ip}" fill="url(#land)" stroke="#3c6342" stroke-width="1.1" stroke-linejoin="round" filter="url(#ish)"/>`;
+  // glow over the play region
+  svg+=`<rect width="${W}" height="${H}" fill="url(#sw)"/>`;
+  // route line in play order
+  const pts=COURSE_ORDER.map(id=>project(GEO[id].la,GEO[id].lo));
+  svg+=`<polyline points="${pts.map(p=>p.map(n=>n.toFixed(1)).join(',')).join(' ')}" fill="none" stroke="#e9cf8a" stroke-width="1.5" stroke-dasharray="2 4" stroke-linecap="round" opacity=".6"/>`;
+  // stay + airport markers (Shannon + Killarney; Lahinch coincides with its course)
+  [['shannon','✈','Shannon'],['killarney','◆','Killarney']].forEach(([k,gly,lab])=>{
+    const h=HOTELS_GEO[k];const[x,y]=project(h.la,h.lo);
+    svg+=`<g><rect x="${(x-3.5).toFixed(1)}" y="${(y-3.5).toFixed(1)}" width="7" height="7" rx="1.5" fill="#c9b07c"/>
+      <text x="${(x+6).toFixed(1)}" y="${(y+3).toFixed(1)}" font-size="8" fill="#d6c08a" font-family="Outfit" font-weight="700">${lab}</text></g>`;
   });
-  // course pins
+  // course pins (numbered, names live in the list below)
   COURSE_ORDER.forEach((id,i)=>{
-    const[x,y]=project(GEO[id].la,GEO[id].lo,W,H);const col=DAYCOL[GEO[id].d];
-    const sel=mapSel===id;
+    const[x,y]=project(GEO[id].la,GEO[id].lo);const col=DAYCOL[GEO[id].d];const sel=mapSel===id;
     svg+=`<g class="mpin${sel?' sel':''}" onclick="mapPick('${id}')">
-      <circle cx="${x}" cy="${y}" r="${sel?12:10}" fill="${col}" stroke="#0a0e0b" stroke-width="${sel?2.5:1.5}"/>
-      <text class="num" x="${x}" y="${y+3.2}" text-anchor="middle">${i+1}</text>
-      <text class="lab" x="${x}" y="${y-14}" text-anchor="middle">${COURSE[id].name}</text>
+      <circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${sel?11:8.5}" fill="${col}" stroke="#08130c" stroke-width="${sel?2.5:1.5}"/>
+      <text class="num" x="${x.toFixed(1)}" y="${(y+3).toFixed(1)}" text-anchor="middle">${i+1}</text>
     </g>`;
   });
+  // labels
+  svg+=`<text x="${(W-10)}" y="34" text-anchor="end" font-size="20" fill="#2e4a33" font-family="Playfair Display" font-weight="800" opacity=".85">ÉIRE</text>`;
+  svg+=`<text transform="translate(20,250) rotate(-90)" font-size="9" fill="#3fae6f" font-family="Playfair Display" font-style="italic" opacity=".7">Wild Atlantic Way</text>`;
   // compass
-  svg+=`<g transform="translate(40,392)" opacity=".7"><circle r="15" fill="none" stroke="#34452f" stroke-width="1"/>
-    <path d="M0,-12 L4,0 L0,12 L-4,0 Z" fill="#d8b15a"/><text y="-18" text-anchor="middle" font-size="8" fill="#94a389" font-weight="700">N</text></g>`;
-  svg+=`<text x="${W-8}" y="${H-10}" text-anchor="end" font-size="9" fill="#3fae6f" font-family="Playfair Display" font-style="italic" opacity=".7">Wild Atlantic Way</text>`;
+  svg+=`<g transform="translate(${W-26},${H-30})" opacity=".75"><circle r="13" fill="#0a1a14" stroke="#34452f" stroke-width="1"/>
+    <path d="M0,-10 L3.5,1 L0,-2 L-3.5,1 Z" fill="#e9cf8a"/><text y="-15" text-anchor="middle" font-size="8" fill="#94a389" font-weight="700">N</text></g>`;
   svg+='</svg>';
   const mw=el('div','mapwrap',svg);c.appendChild(mw);
   // legend
@@ -856,34 +903,53 @@ function renderWeather(){
     : 'No live data for these dates yet (forecasts reach ~16 days out). Showing climate normals as a planning guide.')).style.padding='2px 4px';
 }
 
-/* ================= PACK ================= */
-const PACK=[
- ['🪪','Passport + boarding passes','Check expiry — needs 6 months validity'],
- ['🔌','EU/UK plug adapter (Type G)','Ireland uses the UK 3-pin plug'],
- ['💶','Some euros + a card with no FX fees','Pro shops & pubs — tap works everywhere'],
- ['🧢','Rain gear & layers','It\'s links golf in Ireland. It will blow. Waterproofs are not optional.'],
- ['🧤','Two gloves (they get wet)','And plenty of spare balls — the dunes eat them'],
- ['👟','Spikes + a second dry pair of shoes','36-hole days mean wet feet'],
- ['🏌️','Travel bag / club insurance','Confirm clubs are on every flight segment'],
- ['🧴','Sunscreen (yes, really)','Long July days, 9:50pm sunsets'],
- ['🎒','Cash for caddies','Tip on top of the fee — bring small notes'],
- ['📱','Download offline maps of Clare & Kerry','Signal gets thin out on the peninsulas'],
- ['💊','Advil / hangover kit','Six days, twelve lads. You know.'],
- ['☘️','A good attitude for blind tee shots','Half these courses you can\'t see the green. Embrace it.']
-];
-function renderPack(){
+/* ================= FLIGHTS ================= */
+/* per lad: out[legs], arr {ap:airport, day, time}, ret {legs, label} */
+const FLIGHTS = {
+ Ben:{out:['SNA 12:01pm Sun (AA)','DFW 7:00pm Sun (AA)'],arr:{ap:'DUB',day:'Mon Jul 6',time:'9:45am'},ret:'DUB 6:30am Sun Jul 12 (Aer Lingus)'},
+ Christian:{out:[],arr:{ap:'TBD',day:'',time:''},ret:'TBD — flights not booked yet'},
+ Davis:{out:['SFO 11:15am Sun (United)','EWR 10:50pm Sun (United)'],arr:{ap:'SNN',day:'Mon Jul 6',time:'10:15am'},ret:'SNN 12:30pm Sat Jul 11 (United)'},
+ Domenic:{out:['DEN 1:45pm Sun (United)','EWR 10:50pm Sun (United)'],arr:{ap:'SNN',day:'Mon Jul 6',time:'10:15am'},ret:'DUB 8:50am Sun Jul 12 (United)'},
+ Fraser:{out:['LHR 3:50pm Sat (BA)'],arr:{ap:'DUB',day:'Sat Jul 4',time:'5:15pm'},ret:'DUB 12:00pm Sun Jul 12'},
+ Nate:{out:['SAN 1:05pm Sun (Delta)','JFK 11:55pm Sun (Delta)'],arr:{ap:'SNN',day:'Mon Jul 6',time:'11:10am'},ret:'SNN 12:30pm Sat Jul 11 (United)'},
+ Nick:{out:['SFO 11:15am Sun (United)','EWR 10:50pm Sun (United)'],arr:{ap:'SNN',day:'Mon Jul 6',time:'10:15am'},ret:'SNN 12:30pm Sat Jul 11 (United)'},
+ Patrick:{out:['BOS 11:30pm Sat (Aer Lingus)'],arr:{ap:'DUB',day:'Sun Jul 5',time:'10:35am'},ret:'DUB 12:45pm Sat Jul 11'},
+ Rick:{out:['IAD 10:35pm Sat (Aer Lingus)'],arr:{ap:'DUB',day:'Sun Jul 5',time:'10:40am'},ret:'DUB 8:50am Sat Jul 11'},
+ Ryan:{out:['SLC 1:59pm Sun (Delta)','JFK 11:55pm Sun (Delta)'],arr:{ap:'SNN',day:'Mon Jul 6',time:'11:10am'},ret:'DUB 11:40am Sun Jul 12'},
+ Tanner:{out:['SAN 1:05pm Sun (Delta)','JFK 11:55pm Sun (Delta)'],arr:{ap:'SNN',day:'Mon Jul 6',time:'11:10am'},ret:'SNN 1:05pm Sat Jul 11 (Delta)'},
+ Tate:{out:['LAX 1:25pm Sun (United)','EWR 10:50pm Sun (United)'],arr:{ap:'SNN',day:'Mon Jul 6',time:'10:15am'},ret:'SNN 12:30pm Sat Jul 11 (United)'}
+};
+const AIRPORT={SNN:'Shannon',DUB:'Dublin',TBD:'TBD'};
+function flightCard(name){
+  const F=FLIGHTS[name];const mine=name===you;
+  const arr=F.arr.ap==='TBD'
+    ? `<div class="fl-arr tbd">Flights not booked</div>`
+    : `<div class="fl-arr"><span class="ap">${F.arr.ap}</span><span class="apx">${AIRPORT[F.arr.ap]}</span><span class="at">${F.arr.day} · ${F.arr.time}</span></div>`;
+  const out = F.out.length
+    ? F.out.map(l=>`<span class="leg">${l}</span>`).join('<span class="ar">→</span>')
+    : '<span class="leg" style="color:var(--dim2)">to be confirmed</span>';
+  return el('div','flcard'+(mine?' mine':''),
+    `<div class="fl-h"><div class="av">${initials(name)}</div><b>${name}</b>${mine?'<span class="fl-you">YOU</span>':''}${arr}</div>
+     <div class="fl-row"><span class="fl-lab">OUT</span><div class="fl-legs">${out}</div></div>
+     <div class="fl-row"><span class="fl-lab ret">HOME</span><div class="fl-legs"><span class="leg">${F.ret}</span></div></div>`);
+}
+function renderFlights(){
   const c=$('#content');c.innerHTML='';
-  c.appendChild(secTitle('Packing & prep'));
-  const done=PACK.filter((_,i)=>store.todo['p'+i]).length;
-  const prog=el('div','tprog',`<div class="bar"><div class="fill" style="width:${Math.round(done/PACK.length*100)}%"></div></div><div class="lbl">${done} of ${PACK.length} sorted</div>`);
-  c.appendChild(prog);
-  PACK.forEach((p,i)=>{
-    const k='p'+i;const dn=store.todo[k];
-    const t=el('div','todo'+(dn?' done':''),
-      `<div class="cb">${dn?'✓':''}</div><div><div class="tt">${p[0]} ${p[1]}</div><div class="nt">${p[2]}</div></div>`);
-    t.onclick=()=>{store.todo[k]=!store.todo[k];save();renderPack();};
-    c.appendChild(t);
-  });
+  // arrival summary
+  c.appendChild(secTitle('Landing in Ireland'));
+  const snn=LADS.filter(l=>FLIGHTS[l].arr.ap==='SNN');
+  const dub=LADS.filter(l=>FLIGHTS[l].arr.ap==='DUB');
+  const summ=el('div','arrsum');
+  summ.innerHTML=`
+    <div class="arrcol"><div class="ah"><b>SNN</b> Shannon</div><div class="al">${snn.map(n=>`<span class="${n===you?'you':''}">${n}</span>`).join(' · ')}</div><div class="an">Most of the crew · Mon Jul 6 morning</div></div>
+    <div class="arrcol"><div class="ah"><b>DUB</b> Dublin</div><div class="al">${dub.map(n=>`<span class="${n===you?'you':''}">${n}</span>`).join(' · ')}</div><div class="an">Earlier arrivals · drive across to Clare</div></div>`;
+  c.appendChild(summ);
+  // your card first if selected
+  c.appendChild(secTitle('Everyone’s flights'));
+  c.appendChild(el('div','dsub','Outbound is mostly Sun Jul 5 overnight → land Mon Jul 6. Tap your name up top to pin yours.')).style.padding='0 2px 12px';
+  const order = you ? [you, ...LADS.filter(l=>l!==you)] : LADS;
+  order.forEach(n=>c.appendChild(flightCard(n)));
+  c.appendChild(el('div','menote','Returns are staggered Sat Jul 11 → Sun Jul 12. Ben, Dom & Ryan get the bonus Sunday. Confirm your own seats and bag allowance for clubs before you fly.')).style.padding='10px 4px';
 }
 
 /* ================= NAME SHEET ================= */
@@ -917,7 +983,7 @@ function render(){
   else if(tab==='courses')renderCourses();
   else if(tab==='map')renderMap();
   else if(tab==='weather'){renderWeather();if(!WX_LIVE)fetchWx();}
-  else if(tab==='pack')renderPack();
+  else if(tab==='flights')renderFlights();
 }
 $('#youbar').onclick=openSheet;
 renderYou();renderCD();render();
