@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a0e0b">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Éire 2026 · The Lads' Links Tour</title>
+<meta property="og:title" content="ÉIRE 2026 — The Lads' Links Tour">
+<meta property="og:description" content="8 courses · 6 days · 12 lads · Ballybunnion, Lahinch, Old Head, Tralee, Waterville & more. Tap your name — your foursome lights up all week. ☘️⛳">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;0,900;1,600&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0e0b; --bg2:#0e130e; --card:#141a13; --card2:#1a2219; --card3:#212b1f;
+  --line:#283626; --line2:#34452f; --txt:#eef3e8; --dim:#94a389; --dim2:#606e58;
+  --green:#3fae6f; --fair:#74c247; --emer:#2fd08a; --gold:#d8b15a; --gold2:#e9cf8a;
+  --cream:#f1e8cf; --red:#e7625f; --sky:#6fb6e8; --sand:#c9b07c;
+  --grad:linear-gradient(135deg,#2fd08a 0%,#3fae6f 38%,#a9c24a 72%,#d8b15a 100%);
+  --gradg:linear-gradient(135deg,#1e7d4f 0%,#3fae6f 60%,#74c247 100%);
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--txt);font-family:'Outfit',-apple-system,sans-serif;
+  font-size:15px;line-height:1.45;overscroll-behavior-y:none;
+  background-image:
+    radial-gradient(1100px 480px at 82% -8%,rgba(63,174,111,.16),transparent 60%),
+    radial-gradient(900px 460px at 8% -4%,rgba(216,177,90,.12),transparent 58%),
+    radial-gradient(700px 700px at 50% 120%,rgba(47,208,138,.06),transparent 60%);}
+.wrap{max-width:580px;margin:0 auto;padding:0 14px 120px}
+a{color:inherit}
+
+/* ---------- hero ---------- */
+.hero{padding:30px 4px 12px;text-align:center;position:relative}
+.hero .kick{font-size:12px;letter-spacing:.42em;color:var(--gold);text-transform:uppercase;font-weight:600}
+.hero h1{font-family:'Playfair Display',serif;font-weight:900;font-size:62px;line-height:.96;margin:6px 0 0;
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:.01em}
+.hero .en{font-weight:700;font-size:15px;letter-spacing:.34em;color:var(--cream);margin-top:6px;text-transform:uppercase}
+.hero .dates{margin-top:11px;color:var(--dim);font-size:13.5px}
+.hero .crew{margin-top:5px;font-size:11.5px;color:var(--dim2);letter-spacing:.12em;text-transform:uppercase}
+#cd{margin:16px auto 0;display:inline-flex;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:16px;
+  padding:11px 20px;font-weight:800;font-size:13px;letter-spacing:.04em;align-items:center}
+#cd .seg{display:flex;flex-direction:column;align-items:center;line-height:1}
+#cd .seg b{font-size:24px;font-family:'Playfair Display',serif;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+#cd .seg small{font-size:9px;letter-spacing:.18em;color:var(--dim2);text-transform:uppercase;margin-top:5px;font-weight:700}
+#cd.live{border-color:rgba(47,208,138,.5)}
+.crest{font-size:15px;color:var(--gold)}
+
+/* ---------- name picker bar ---------- */
+.youbar{display:flex;align-items:center;gap:10px;background:linear-gradient(135deg,rgba(216,177,90,.12),rgba(63,174,111,.08));
+  border:1px solid rgba(216,177,90,.32);border-radius:15px;padding:11px 14px;margin:14px 0 4px;cursor:pointer}
+.youbar .ic{font-size:19px}
+.youbar .yt{flex:1;min-width:0}
+.youbar .yt b{font-weight:700;font-size:14px}
+.youbar .yt .s{font-size:11.5px;color:var(--dim);margin-top:1px}
+.youbar .go{font-size:11px;color:var(--gold);font-weight:800;letter-spacing:.05em;white-space:nowrap}
+
+/* ---------- tabs ---------- */
+.tabs{position:sticky;top:0;z-index:50;display:flex;gap:6px;padding:12px 0 10px;
+  background:linear-gradient(var(--bg) 76%,transparent)}
+.tab{flex:1;text-align:center;padding:9px 0 8px;border-radius:13px;background:var(--card);border:1px solid var(--line);
+  color:var(--dim);font-weight:600;font-size:12px;cursor:pointer;transition:.18s;position:relative}
+.tab .e{display:block;font-size:17px;margin-bottom:2px}
+.tab.on{color:#fff;background:var(--card2);border-color:transparent}
+.tab.on::after{content:'';position:absolute;inset:-1px;border-radius:13px;padding:1.5px;background:var(--grad);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+
+/* ---------- day pills ---------- */
+.pills{position:sticky;top:60px;z-index:49;display:flex;gap:7px;overflow-x:auto;padding:6px 0 12px;scrollbar-width:none;
+  background:linear-gradient(var(--bg) 62%,transparent)}
+.pills::-webkit-scrollbar{display:none}
+.pill{flex:0 0 auto;padding:8px 14px;border-radius:999px;background:var(--card);border:1px solid var(--line);
+  color:var(--dim);font-size:12.5px;font-weight:600;cursor:pointer;white-space:nowrap;text-align:center;line-height:1.15}
+.pill small{display:block;font-size:9px;color:var(--dim2);letter-spacing:.1em;text-transform:uppercase;margin-top:2px}
+.pill.on{background:var(--gradg);color:#fff;border-color:transparent}
+.pill.on small{color:rgba(255,255,255,.8)}
+
+/* ---------- now banner ---------- */
+.nowbar{display:flex;align-items:center;gap:11px;background:linear-gradient(135deg,rgba(47,208,138,.15),rgba(216,177,90,.08));
+  border:1px solid rgba(47,208,138,.4);border-radius:15px;padding:12px 14px;margin:4px 0 16px;font-size:13px}
+.nowbar .dot{width:9px;height:9px;border-radius:50%;background:var(--emer);box-shadow:0 0 0 0 rgba(47,208,138,.6);animation:pulse 1.7s infinite;flex:0 0 auto}
+@keyframes pulse{70%{box-shadow:0 0 0 9px rgba(47,208,138,0)}100%{box-shadow:0 0 0 0 rgba(47,208,138,0)}}
+.nowbar b{color:var(--emer)}
+.nowbar .s{color:var(--dim);font-size:11.5px}
+
+/* ---------- day section ---------- */
+.day{margin:4px 0 26px}
+.dhead{display:flex;align-items:baseline;gap:10px;padding:8px 2px 2px;flex-wrap:wrap}
+.dhead .big{font-family:'Playfair Display',serif;font-weight:800;font-size:24px}
+.dhead .dd{color:var(--gold);font-size:13px;font-weight:700;letter-spacing:.04em}
+.dsub{color:var(--dim);font-size:12.5px;padding:2px 2px 4px}
+.dhotel{font-size:11.5px;color:var(--dim2);padding:0 2px 12px;display:flex;align-items:center;gap:6px}
+.dhotel b{color:var(--sand);font-weight:600}
+
+/* ---------- cards ---------- */
+.list{display:flex;flex-direction:column;gap:9px}
+.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:17px;
+  padding:12px 13px;position:relative;transition:border-color .25s, box-shadow .25s}
+.card.golf{border-color:var(--line2)}
+.card.now{border-color:var(--emer);box-shadow:0 0 22px rgba(47,208,138,.16)}
+.card .row{display:flex;gap:12px;align-items:flex-start}
+.card .tc{flex:0 0 50px;text-align:right;padding-top:2px}
+.card .tc .tm{font-weight:800;font-size:13.5px}
+.card .tc .ap{font-size:9px;color:var(--dim2);font-weight:700;letter-spacing:.1em}
+.card .em{flex:0 0 38px;height:38px;border-radius:11px;background:var(--bg2);border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;font-size:19px}
+.card .bd{flex:1;min-width:0}
+.card .ti{font-weight:600;font-size:14.5px}
+.card .su{font-size:12px;color:var(--dim);margin-top:2px}
+.badges{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px;align-items:center}
+.bdg{font-size:10.5px;padding:3px 8px;border-radius:999px;background:var(--bg2);border:1px solid var(--line);color:var(--dim);font-weight:600;text-decoration:none}
+.bdg.rank{border:none;color:#0a0e0b;font-weight:800;background:var(--grad)}
+.bdg.gold{color:var(--gold);border-color:rgba(216,177,90,.35)}
+.bdg.nav{color:var(--emer);border-color:rgba(47,208,138,.32)}
+.bdg.mine{background:var(--gold);color:#1a1305;border:none;font-weight:800}
+
+/* tee groups */
+.tee{margin-top:11px;display:flex;flex-direction:column;gap:7px}
+.grp{display:flex;align-items:center;gap:10px;background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:8px 10px;transition:.2s}
+.grp.mine{border-color:var(--gold);background:linear-gradient(135deg,rgba(216,177,90,.14),rgba(63,174,111,.06));box-shadow:0 0 16px rgba(216,177,90,.12)}
+.grp .gt{flex:0 0 60px;font-weight:800;font-size:13px;color:var(--cream)}
+.grp.mine .gt{color:var(--gold2)}
+.grp .gp{flex:1;font-size:12.5px;color:var(--dim);line-height:1.5}
+.grp .gp .pl{color:var(--txt)}
+.grp .gp .pl.you{color:var(--gold2);font-weight:800;text-shadow:0 0 12px rgba(216,177,90,.4)}
+.grp .gl{flex:0 0 auto;font-size:9.5px;font-weight:800;letter-spacing:.1em;color:var(--dim2);text-transform:uppercase}
+.grp.mine .gl{color:var(--gold)}
+.caddie{margin-top:8px;font-size:11px;color:var(--dim2);border-top:1px dashed var(--line);padding-top:8px}
+.caddie b{color:var(--sand);font-weight:600}
+
+/* ---------- course cards ---------- */
+.coursecard{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;margin-bottom:14px}
+.cc-banner{position:relative;height:118px;display:flex;align-items:flex-end;padding:13px 15px;
+  background-size:cover;background-position:center}
+.cc-banner::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,12,8,.15),rgba(8,12,8,.82))}
+.cc-banner .bz{position:relative;z-index:2;width:100%;display:flex;align-items:flex-end;justify-content:space-between;gap:10px}
+.cc-banner h3{font-family:'Playfair Display',serif;font-weight:800;font-size:24px;color:#fff;line-height:1.02;text-shadow:0 2px 12px rgba(0,0,0,.6)}
+.cc-banner .loc{font-size:11.5px;color:rgba(255,255,255,.82);margin-top:3px;letter-spacing:.02em}
+.cc-rank{flex:0 0 auto;text-align:center;background:rgba(10,14,11,.55);backdrop-filter:blur(4px);border:1px solid rgba(216,177,90,.45);
+  border-radius:12px;padding:6px 10px}
+.cc-rank b{display:block;font-family:'Playfair Display',serif;font-size:20px;color:var(--gold2);line-height:1}
+.cc-rank small{font-size:8px;letter-spacing:.14em;color:rgba(255,255,255,.7);text-transform:uppercase}
+.cc-body{padding:13px 15px 15px}
+.cc-meta{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:11px}
+.cc-quote{font-family:'Playfair Display',serif;font-style:italic;font-size:14.5px;color:var(--cream);border-left:2px solid var(--gold);
+  padding:2px 0 2px 12px;margin:0 0 12px;line-height:1.4}
+.cc-yours{display:flex;align-items:center;gap:9px;background:linear-gradient(135deg,rgba(216,177,90,.13),rgba(63,174,111,.06));
+  border:1px solid rgba(216,177,90,.3);border-radius:12px;padding:9px 12px;margin-bottom:12px;font-size:12.5px}
+.cc-yours .cy-t{font-weight:800;color:var(--gold2)}
+.cc-yours.none{background:var(--bg2);border-color:var(--line);color:var(--dim)}
+.holes{display:flex;flex-direction:column;gap:8px;margin:2px 0 4px}
+.hole{display:flex;gap:11px;align-items:flex-start}
+.hole .hn{flex:0 0 40px;text-align:center;background:var(--bg2);border:1px solid var(--line2);border-radius:9px;padding:5px 0;line-height:1.05}
+.hole .hn b{display:block;font-family:'Playfair Display',serif;font-size:15px;color:var(--fair)}
+.hole .hn small{font-size:8px;letter-spacing:.08em;color:var(--dim2);text-transform:uppercase}
+.hole .ht{flex:1;font-size:12.5px;color:var(--dim);padding-top:1px}
+.hole .ht b{color:var(--txt);font-weight:600}
+.cc-note{font-size:12.5px;color:var(--dim);margin-top:10px;line-height:1.5}
+.cc-foot{display:flex;gap:8px;margin-top:13px}
+.cc-foot a{flex:1;text-align:center;background:var(--card2);border:1px solid var(--line);border-radius:11px;padding:9px;font-size:12px;font-weight:700;color:var(--cream);text-decoration:none}
+.cc-foot a.g{color:var(--emer);border-color:rgba(47,208,138,.3)}
+
+/* ---------- map ---------- */
+.mapwrap{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:8px;margin-top:2px;overflow:hidden}
+.mapwrap svg{width:100%;height:auto;display:block;border-radius:14px}
+.mpin{cursor:pointer}
+.mpin .lab{font-size:7.4px;font-weight:700;fill:var(--cream);font-family:'Outfit'}
+.mpin .num{font-size:9px;font-weight:800;fill:#06120b;font-family:'Outfit'}
+.mlegend{display:flex;flex-wrap:wrap;gap:7px 12px;padding:13px 6px 4px;font-size:11px;color:var(--dim)}
+.mlegend span{display:flex;align-items:center;gap:6px}
+.mlegend i{width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;color:#06120b}
+#mpanel{margin-top:12px}
+.mrow{display:flex;gap:11px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:13px;padding:9px 12px;margin-bottom:7px;font-size:13px;cursor:pointer}
+.mrow .mn{flex:0 0 26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#06120b}
+.mrow .mt{flex:1;min-width:0}
+.mrow .mt b{font-weight:600}
+.mrow .mt .ms{font-size:11px;color:var(--dim2)}
+.mrow .md{font-size:11px;color:var(--gold);font-weight:700;white-space:nowrap}
+
+/* ---------- money / logistics ---------- */
+.sec{margin:20px 0 10px;font-weight:800;letter-spacing:.16em;font-size:11.5px;color:var(--gold);text-transform:uppercase;display:flex;align-items:center;gap:9px}
+.sec::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+.mecard{background:linear-gradient(150deg,rgba(63,174,111,.13),rgba(216,177,90,.06));border:1px solid rgba(216,177,90,.3);border-radius:20px;padding:16px;margin-bottom:14px}
+.mecard .meh{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:13px}
+.mecard .meh b{font-family:'Playfair Display',serif;font-size:19px}
+.mecard .meh .who{font-size:12px;color:var(--gold2);font-weight:700}
+.melines{display:flex;flex-direction:column;gap:8px}
+.meline{display:flex;justify-content:space-between;font-size:13px;align-items:center}
+.meline .ll{color:var(--dim);display:flex;align-items:center;gap:8px}
+.meline .vv{font-weight:700;font-variant-numeric:tabular-nums}
+.metot{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--line2);margin-top:11px;padding-top:11px}
+.metot .l{font-weight:700;font-size:13px}
+.metot .v{font-family:'Playfair Display',serif;font-size:24px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:800}
+.menote{font-size:10.5px;color:var(--dim2);margin-top:9px;line-height:1.5}
+
+.tbl{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-bottom:14px}
+.trow{display:flex;align-items:center;padding:10px 13px;font-size:12.5px;border-top:1px solid var(--line)}
+.trow:first-child{border-top:none}
+.trow.h{background:var(--bg2);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim2);font-weight:700}
+.trow .c1{flex:1;font-weight:600}
+.trow .c1 .sm{font-weight:400;color:var(--dim2);font-size:11px}
+.trow .c2{flex:0 0 auto;color:var(--dim);text-align:right}
+.trow .c3{flex:0 0 84px;text-align:right;font-weight:700;font-variant-numeric:tabular-nums}
+.trow.tot{background:var(--card2);font-weight:800}
+.trow.tot .c3{color:var(--gold2)}
+
+.hotelcard{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;margin-bottom:13px}
+.hotelcard .hh{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.hotelcard .hh b{font-family:'Playfair Display',serif;font-size:17px}
+.hotelcard .hh .nt{font-size:11px;color:var(--gold);font-weight:700;white-space:nowrap}
+.hotelcard .hd{font-size:11.5px;color:var(--dim2);margin:2px 0 11px}
+.rooms{display:flex;flex-direction:column;gap:7px}
+.rm{display:flex;align-items:center;gap:10px;background:var(--bg2);border:1px solid var(--line);border-radius:11px;padding:8px 11px;font-size:12.5px}
+.rm.mine{border-color:var(--gold);background:linear-gradient(135deg,rgba(216,177,90,.12),transparent)}
+.rm .rt{flex:0 0 92px;font-size:11px;color:var(--dim2);font-weight:600}
+.rm .rp{flex:1;color:var(--txt)}
+.rm .rp .you{color:var(--gold2);font-weight:800}
+
+/* ---------- weather ---------- */
+.wxcard{position:relative;display:flex;gap:13px;background:var(--card);border:1px solid var(--line);border-radius:17px;padding:13px;margin-bottom:10px}
+.wxcard .wx-l{flex:0 0 60px;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
+.wxcard .wx-ic{font-size:34px;line-height:1}
+.wxcard .wx-day b{font-family:'Playfair Display',serif;font-size:16px;display:block}
+.wxcard .wx-day small{font-size:10px;color:var(--dim2);letter-spacing:.05em}
+.wxcard .wx-m{flex:1;min-width:0}
+.wxcard .wx-co{font-size:12px;color:var(--gold);font-weight:700;margin-bottom:8px;letter-spacing:.02em}
+.wxcard .wx-stats{display:flex;gap:14px;margin-bottom:9px}
+.wxcard .wx-stats span{display:flex;flex-direction:column;line-height:1.1}
+.wxcard .wx-stats b{font-size:17px;font-weight:700;font-variant-numeric:tabular-nums}
+.wxcard .wx-stats small{font-size:8.5px;letter-spacing:.08em;color:var(--dim2);text-transform:uppercase;margin-top:3px}
+.wxcard .wx-tip{font-size:12px;color:var(--dim);line-height:1.45}
+.wxcard .wx-live{position:absolute;top:11px;right:12px;font-size:8.5px;font-weight:800;letter-spacing:.12em;color:var(--emer);background:rgba(47,208,138,.12);border:1px solid rgba(47,208,138,.35);border-radius:999px;padding:2px 7px}
+.wxsum{background:linear-gradient(150deg,rgba(63,174,111,.12),rgba(111,182,232,.06));border:1px solid rgba(63,174,111,.28);border-radius:18px;padding:15px;margin:6px 0 4px;font-size:12.5px;color:var(--dim);line-height:1.6}
+.wxsum b{color:var(--cream);font-weight:700}
+.wxsum b:first-child{display:block;font-family:'Playfair Display',serif;font-size:16px;color:var(--txt);margin-bottom:7px}
+
+/* ---------- checklist ---------- */
+.tprog{margin:6px 0 16px}
+.tprog .bar{height:9px;border-radius:99px;background:var(--card);border:1px solid var(--line);overflow:hidden}
+.tprog .fill{height:100%;background:var(--grad);border-radius:99px;transition:width .4s}
+.tprog .lbl{font-size:12px;color:var(--dim);margin-top:7px}
+.todo{display:flex;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 13px;margin-bottom:8px;cursor:pointer;align-items:flex-start}
+.todo .cb{flex:0 0 23px;height:23px;border-radius:7px;border:2px solid var(--line2);display:flex;align-items:center;justify-content:center;font-size:13px;color:#06120b;margin-top:1px;transition:.15s}
+.todo.done .cb{background:var(--emer);border-color:var(--emer)}
+.todo .tt{font-weight:600;font-size:13.5px}
+.todo.done .tt{text-decoration:line-through;color:var(--dim2)}
+.todo .nt{font-size:11.5px;color:var(--dim);margin-top:2px}
+
+/* ---------- sheet (name picker) ---------- */
+#sheetbg{position:fixed;inset:0;background:rgba(4,7,5,.74);backdrop-filter:blur(3px);z-index:95}
+#sheet{position:fixed;left:0;right:0;bottom:0;z-index:96;background:var(--bg2);border-radius:24px 24px 0 0;border:1px solid var(--line);
+  max-height:78vh;overflow-y:auto;padding:18px 16px 34px;max-width:580px;margin:0 auto}
+#sheet h3{font-family:'Playfair Display',serif;font-weight:800;font-size:21px;margin-bottom:2px}
+#sheet .sub{color:var(--dim);font-size:12.5px;margin-bottom:15px}
+.namegrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.nm{display:flex;align-items:center;gap:9px;background:var(--card);border:1px solid var(--line);border-radius:13px;padding:11px 12px;cursor:pointer;transition:.15s}
+.nm.on{border-color:var(--gold);background:linear-gradient(135deg,rgba(216,177,90,.16),transparent)}
+.nm .av{flex:0 0 30px;height:30px;border-radius:50%;background:var(--gradg);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:#06120b}
+.nm.on .av{background:var(--grad)}
+.nm .nn{font-weight:600;font-size:13.5px}
+.clearbtn{width:100%;background:none;border:1px solid var(--line);color:var(--dim);border-radius:12px;padding:11px;font-weight:600;font-size:13px;cursor:pointer;margin-top:13px;font-family:'Outfit'}
+
+footer{text-align:center;color:var(--dim2);font-size:11px;padding:26px 0 8px;line-height:1.7}
+footer .ga{font-family:'Playfair Display',serif;font-style:italic;font-size:13px;color:var(--sand)}
+.hidden{display:none!important}
+@media (max-width:380px){.hero h1{font-size:52px}.card .tc{flex-basis:46px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="kick">The Lads' Links Tour · ☘</div>
+    <h1>Éire</h1>
+    <div class="en">Ireland Golf · MMXXVI</div>
+    <div class="dates">6 – 11 July 2026 · 8 links · 12 lads · the Wild Atlantic Way</div>
+    <div class="crew">Clare · Kerry · Cork</div>
+    <div id="cd"></div>
+  </div>
+
+  <div class="youbar" id="youbar">
+    <span class="ic">🏌️</span>
+    <div class="yt"><b id="youname">Who are you?</b><div class="s" id="youhint">Tap to pick your name — your foursome lights up all week</div></div>
+    <span class="go">SET ›</span>
+  </div>
+
+  <div class="tabs" id="tabs"></div>
+  <div id="pillwrap"></div>
+  <div id="content"></div>
+
+  <footer>
+    <div class="ga">“Sláinte, and may your drives find the fairway.”</div>
+    Spanish Point · Doonbeg · Lahinch · Old Head · Tralee · Ballybunnion · Dooks · Waterville<br>
+    <span style="opacity:.6">v1 · tee times confirmed · tap a name to personalise · times are local Irish (IST)</span>
+  </footer>
+</div>
+
+<div id="sheetbg" class="hidden" onclick="closeSheet()"></div>
+<div id="sheet" class="hidden">
+  <h3>Which lad are you?</h3>
+  <div class="sub">Pick once. Your foursome, room and cost lock in across the whole app.</div>
+  <div class="namegrid" id="namegrid"></div>
+  <button class="clearbtn" onclick="setYou(null)">Clear selection</button>
+</div>
+
+<script>
+/* ================= DATA ================= */
+const LADS = ['Ben','Christian','Davis','Domenic','Fraser','Nate','Nick','Patrick','Rick','Ryan','Tanner','Tate'];
+
+/* courses keyed by id. g1/g2 = banner gradient stops */
+const COURSE = {
+ spanish:{name:'Spanish Point',loc:'Miltown Malbay, Co. Clare',rank:'WARM-UP',rankl:'twilight',
+   g1:'#1e6e8c',g2:'#0d3b4d',meta:['Old links','Twilight round','Sunset 9:50pm'],
+   quote:'First swings on Irish soil — a relaxed evening links to shake off the flights.',
+   note:'A charming old-school links right on the Atlantic, ten minutes from Lahinch. Long July daylight means a full round well into the evening. Loosen up, soak it in, and ease into the week.',
+   web:'https://spanishpointgolf.com', holes:[]},
+ doonbeg:{name:'Trump Doonbeg',loc:'Doonbeg, Co. Clare',rank:'#14',rankl:'in Ireland',
+   g1:'#2b6b46',g2:'#123a24',meta:['Greg Norman','Links','Par 72'],
+   quote:'Norman carved it through the dunes; Trump\'s investment is what saved it.',
+   note:'Originally a Greg Norman design. When the resort was struggling, Trump bought it and poured money in — locals talk about the real sense of relief once that investment landed. Look out for the famous holdout cottage near the dunes, owned by the same family for generations who wouldn\'t sell.',
+   web:'https://www.trumphotels.com/doonbeg', holes:[]},
+ lahinch:{name:'Lahinch',loc:'Lahinch, Co. Clare',rank:'#2',rankl:'in Ireland',
+   g1:'#3a7d3a',g2:'#16401b',meta:['Old Course','A. MacKenzie 1920s','Blind shots'],
+   quote:'“The St. Andrews of Ireland.” A surf town wrapped around a links of pure character.',
+   note:'Alister MacKenzie remodelled it in the 1920s. Loads of blind tee shots — embrace the chaos.',
+   holes:[
+     ['4','Klondike','Par 5 — a giant hill sits smack in the middle of the fairway.'],
+     ['5','The Dell','Blind 170-yd par 3 over a huge dune. Like the 18th at Tobacco — total faith shot.'],
+     ['6','Ocean reveal','Dogleg left where the Atlantic opens up. The favourite hole on the course.'],
+     ['13','Driveable','Short par 4 you can have a go at — stay left.']
+   ],
+   web:'https://www.lahinchgolf.com'},
+ oldhead:{name:'Old Head',loc:'Kinsale, Co. Cork',rank:'#7',rankl:'in Ireland',
+   g1:'#2f6e7a',g2:'#103740',meta:['Own peninsula','Clifftop','The lighthouse'],
+   quote:'A links on its own Atlantic headland, ringed by cliffs, crowned by a lighthouse.',
+   note:'Genuinely one of the most dramatic plots of golfing land on earth — a peninsula jutting into the ocean with the old lighthouse standing guard. Cliff carries on nearly every hole. Bucket-list stuff.',
+   web:'https://www.oldhead.com', holes:[]},
+ tralee:{name:'Tralee',loc:'Barrow, Co. Kerry',rank:'#12',rankl:'in Ireland',
+   g1:'#356b3f',g2:'#13381d',meta:['Arnold Palmer','“Back 9 by God”','Par 71'],
+   quote:'Arnold Palmer designed the front. He said God designed the back nine.',
+   note:'Palmer\'s first European design. The front nine is grand — but the back nine, routed through towering dunes above the beach, is the stuff of legend.',
+   holes:[
+     ['3','The Castle','A little ruined castle sits beside the green.'],
+     ['11','The climb','Brutally long, uphill par 5.'],
+     ['12','The crevasse','The favourite. A ridiculous second shot over a 100-foot-deep chasm.'],
+     ['13','The pit','Long par 3 with a pit yawning right in front of you.'],
+     ['16','Shipwreck','Hero carry off the tee. Walk back from the green and look — it\'s even better from behind.']
+   ],
+   web:'https://www.traleegolfclub.com'},
+ bally:{name:'Ballybunnion',loc:'Ballybunnion, Co. Kerry',rank:'#1',rankl:'in Ireland',
+   g1:'#7a5a1e',g2:'#3a2a0c',meta:['#10 in the World','Old Course','The crown jewel'],
+   quote:'Tom Watson called Ballybunnion the greatest golf course in the world.',
+   note:'#1 in Ireland, top-10 on the planet. Famous for making you manufacture shots — it plays differently every single time. The graveyard sits right of the 1st tee to welcome you in.',
+   holes:[
+     ['1','The graveyard','Cemetery hugs the right side of the opening hole. No pressure.'],
+     ['8','The hidden green','A cool little par 3 with the green tucked away out of sight.'],
+     ['11','The famous one','The signature par 4. Elevated tee, Atlantic on your right, with distinct checkpoints for where to land it.'],
+     ['17','Cut the corner','Risk-reward — bite off as much of the dogleg as you dare.']
+   ],
+   web:'https://ballybuniongolfclub.com'},
+ dooks:{name:'Dooks',loc:'Glenbeigh, Co. Kerry',rank:'EST. 1889',rankl:'one of the oldest',
+   g1:'#557a2e',g2:'#243a12',meta:['Ring of Kerry','Compact links','The toad crest'],
+   quote:'Built for British soldiers on a sporting grant — and it still wears a natterjack toad on its crest.',
+   note:'One of Ireland\'s oldest clubs, originally a 9-holer laid out for soldiers garrisoned nearby. Big and vast it is not — it\'s tight and compact, a bit like Sheep Ranch at Bandon. A breather day with serious Ring of Kerry views, and the only crest in golf featuring a toad.',
+   web:'https://www.dooks.com', holes:[]},
+ waterville:{name:'Waterville',loc:'Ring of Kerry, Co. Kerry',rank:'#4',rankl:'in Ireland',
+   g1:'#26607a',g2:'#0e3240',meta:['Tip of the Ring','Payne Stewart','Recently renovated'],
+   quote:'Tiger played here in \'99. Payne Stewart loved it so much they made him honorary captain.',
+   note:'Out at the very tip of the Ring of Kerry. Recent renovations have it gleaming — more carved-out and clearer than the older links, closer in feel to a top US course or Bandon. A fitting finale.',
+   web:'https://watervillegolflinks.ie', holes:[]},
+ doolin:{name:'Doolin Pitch & Putt',loc:'Doolin, Co. Clare',rank:'OPTIONAL',rankl:'just for fun',
+   g1:'#6a6a2e',g2:'#33330f',meta:['Cliffs of Moher','1 club + a putter','Pure craic'],
+   quote:'One club, one putter, and the Cliffs of Moher as your backdrop.',
+   note:'Right beside the Cliffs of Moher. Grab a single club and a putter and have a laugh before the real golf starts. Totally optional, totally worth it.',
+   web:'https://www.google.com/maps/search/Doolin+pitch+and+putt', holes:[]}
+};
+
+/* tee sheet: course -> [ [timeLabel, [4 lads]], ... ] in group order */
+const TEE = {
+ spanish:[['7:16 PM',['Ben','Davis','Nate','Domenic']],['7:24 PM',['Christian','Nick','Patrick','Rick']],['7:32 PM',['Fraser','Tanner','Ryan','Tate']]],
+ doonbeg:[['8:24 AM',['Christian','Davis','Fraser','Nick']],['8:36 AM',['Nate','Patrick','Rick','Tanner']],['8:48 AM',['Ben','Domenic','Ryan','Tate']]],
+ lahinch:[['3:30 PM',['Christian','Nick','Tanner','Tate']],['3:42 PM',['Ben','Domenic','Fraser','Patrick']],['3:54 PM',['Davis','Nate','Rick','Ryan']]],
+ oldhead:[['1:00 PM',['Fraser','Patrick','Rick','Ryan']],['1:10 PM',['Christian','Davis','Nate','Tate']],['1:20 PM',['Ben','Domenic','Nick','Tanner']]],
+ tralee:[['8:00 AM',['Davis','Fraser','Nick','Ryan']],['8:10 AM',['Christian','Domenic','Nate','Tate']],['8:20 AM',['Ben','Patrick','Rick','Tanner']]],
+ bally:[['1:40 PM',['Domenic','Nate','Ryan','Tanner']],['1:50 PM',['Ben','Christian','Nick','Tate']],['2:00 PM',['Davis','Fraser','Patrick','Rick']]],
+ dooks:[['8:30 AM',['Ben','Christian','Domenic','Ryan']],['8:40 AM',['Davis','Nate','Nick','Tanner']],['8:50 AM',['Fraser','Patrick','Rick','Tate']]],
+ waterville:[['2:30 PM',['Ben','Christian','Domenic','Fraser']],['2:40 PM',['Nick','Patrick','Rick','Ryan']],['2:50 PM',['Davis','Nate','Tanner','Tate']]]
+};
+
+/* caddie plan summary per course (display) */
+const CADDIE = {
+ spanish:'No caddies — carry or trolley.',
+ doonbeg:'No caddies booked. Forecaddie available (3-player min, ~€30pp) if anyone wants one on the day.',
+ lahinch:'Caddies required. Single caddies booked for those who opted in (~€100). Ask at the pro shop.',
+ oldhead:'One forecaddie per group (~€30pp) — strongly recommended on this cliff course.',
+ tralee:'Mix: G1 single + G2 forecaddie. Worth it for the blind shots on the back.',
+ bally:'Most lads on single (~€110) or shared double (~€80) caddies. Take one — it\'s Ballybunnion.',
+ dooks:'No caddies — easy walking, just enjoy the views.',
+ waterville:'Optional singles (~€100); junior caddies ~€50. A couple of lads booked one.'
+};
+
+/* schedule days */
+const DAYS = [
+ {key:'mon',dow:'MON',date:'Jul 6',title:'Arrival & First Swings',hotel:'Lahinch Coast Hotel & Suites · night 1 of 2',
+  sub:'Land at Shannon, grab the cars, and ease in with twilight links at Spanish Point.',
+  items:[
+   {t:'10:15',ap:'AM',e:'🛬',k:'travel',ti:'Land at Shannon (SNN)',su:'United crew lands ~10:15–11:10am · Ben into Dublin · then immigration, bags & rental cars'},
+   {t:'1:00',ap:'PM',e:'🥪',k:'food',ti:'Lunch near the airport',su:'Fuel up before the drive west to the coast'},
+   {t:'2:30',ap:'PM',e:'🚗',k:'travel',ti:'Drive to Doolin',su:'Up the Clare coast toward the Cliffs of Moher'},
+   {t:'3:30',ap:'PM',e:'⛳',k:'golf',ti:'Doolin Pitch & Putt',su:'Optional · one club + a putter by the cliffs',course:'doolin'},
+   {t:'7:16',ap:'PM',e:'🌅',k:'golf',ti:'Spanish Point',su:'Twilight links · 12-min intervals · sunset 9:50pm',course:'spanish'},
+   {t:'9:30',ap:'PM',e:'🍺',k:'food',ti:'Dinner & first pints',su:'Then back to the Lahinch Coast Hotel'}
+  ]},
+ {key:'tue',dow:'TUE',date:'Jul 7',title:'Doonbeg & Lahinch',hotel:'Lahinch Coast Hotel & Suites · night 2 of 2',
+  sub:'The big one. Norman\'s Doonbeg in the morning, the St. Andrews of Ireland in the afternoon.',
+  items:[
+   {t:'8:24',ap:'AM',e:'⛳',k:'golf',ti:'Doonbeg',su:'Trump Doonbeg · #14 in Ireland · Greg Norman links',course:'doonbeg'},
+   {t:'1:00',ap:'PM',e:'🥪',k:'food',ti:'Lunch & swap courses',su:'30-min drive back up to Lahinch'},
+   {t:'3:30',ap:'PM',e:'⛳',k:'golf',ti:'Lahinch',su:'#2 in Ireland · the Old Course · MacKenzie dunes',course:'lahinch'},
+   {t:'8:00',ap:'PM',e:'🍽️',k:'food',ti:'Dinner in Lahinch',su:'Last night on the Clare coast'}
+  ]},
+ {key:'wed',dow:'WED',date:'Jul 8',title:'Old Head → Killarney',hotel:'Killarney · check in for nights 1 of 3',
+  sub:'The clifftop cathedral. Then the long, scenic drive south to Killarney base camp.',
+  items:[
+   {t:'9:00',ap:'AM',e:'🧳',k:'travel',ti:'Check out & drive to Old Head',su:'Long haul south to Kinsale, Co. Cork'},
+   {t:'11:30',ap:'AM',e:'🥪',k:'food',ti:'Lunch at Old Head',su:'Prep before the most scenic round of the trip'},
+   {t:'1:00',ap:'PM',e:'⛳',k:'golf',ti:'Old Head',su:'#7 in Ireland · own peninsula · the lighthouse',course:'oldhead'},
+   {t:'7:00',ap:'PM',e:'🚗',k:'travel',ti:'Drive to Killarney',su:'Into the new base — Plaza Hotel + the Mountain Dew Airbnb'},
+   {t:'8:30',ap:'PM',e:'🍽️',k:'food',ti:'Dinner in Killarney',su:'Settle into the home for the next 3 nights'}
+  ]},
+ {key:'thu',dow:'THU',date:'Jul 9',title:'Tralee & Ballybunnion',hotel:'Killarney · night 2 of 3',
+  sub:'Palmer\'s Tralee at dawn, then the #1 course in Ireland after lunch. The marquee day.',
+  items:[
+   {t:'8:00',ap:'AM',e:'⛳',k:'golf',ti:'Tralee',su:'#12 in Ireland · Arnold Palmer · the back 9 by God',course:'tralee'},
+   {t:'12:00',ap:'PM',e:'🥪',k:'food',ti:'Quick lunch & drive',su:'Tight turnaround — first off at Tralee, first off at Bally'},
+   {t:'1:40',ap:'PM',e:'🏆',k:'golf',ti:'Ballybunnion',su:'#1 in Ireland · #10 in the World · the crown jewel',course:'bally'},
+   {t:'7:00',ap:'PM',e:'🍻',k:'food',ti:'Dinner — the big one',su:'Two of the world\'s best in one day. Earn it.'}
+  ]},
+ {key:'fri',dow:'FRI',date:'Jul 10',title:'Dooks & Waterville',hotel:'Killarney · night 3 of 3',
+  sub:'Old-world Dooks to warm up, then the grand finale out at the tip of the Ring of Kerry.',
+  items:[
+   {t:'8:30',ap:'AM',e:'⛳',k:'golf',ti:'Dooks',su:'Est. 1889 · compact links · the toad crest',course:'dooks'},
+   {t:'12:30',ap:'PM',e:'🥪',k:'food',ti:'Lunch & drive the Ring',su:'Down to the very tip of the Ring of Kerry'},
+   {t:'2:30',ap:'PM',e:'⛳',k:'golf',ti:'Waterville',su:'#4 in Ireland · the grand finale',course:'waterville'},
+   {t:'7:00',ap:'PM',e:'🥃',k:'food',ti:'Final dinner & last pints',su:'Last night together — make it count'}
+  ]},
+ {key:'sat',dow:'SAT',date:'Jul 11',title:'Departures',hotel:'Travel day',
+  sub:'Most fly home Saturday. A few lucky lads roll into Sunday.',
+  items:[
+   {t:'8:50',ap:'AM',e:'✈️',k:'travel',ti:'Early departures',su:'Rick from Dublin · the early birds'},
+   {t:'12:30',ap:'PM',e:'🛫',k:'travel',ti:'Shannon flights home',su:'Davis, Nick, Tate, Nate, Tanner out of SNN · Patrick from DUB'},
+   {t:'—',ap:'',e:'🍀',k:'info',ti:'Sunday stayers',su:'Ben, Domenic, Ryan & Fraser fly out Sunday Jul 12 — bonus day'}
+  ]}
+];
+
+const COURSE_ORDER = ['spanish','doonbeg','lahinch','oldhead','tralee','bally','dooks','waterville'];
+const COURSE_CARDS = ['doolin','spanish','doonbeg','lahinch','oldhead','tralee','bally','dooks','waterville'];
+/* map: which day each course is played + lat/lon */
+const GEO = {
+ spanish:{la:52.846,lo:-9.443,d:1,dl:'Mon'}, doonbeg:{la:52.731,lo:-9.527,d:2,dl:'Tue'},
+ lahinch:{la:52.931,lo:-9.349,d:2,dl:'Tue'}, oldhead:{la:51.604,lo:-8.535,d:3,dl:'Wed'},
+ tralee:{la:52.290,lo:-9.866,d:4,dl:'Thu'}, bally:{la:52.510,lo:-9.674,d:4,dl:'Thu'},
+ dooks:{la:52.066,lo:-9.890,d:5,dl:'Fri'}, waterville:{la:51.831,lo:-10.168,d:5,dl:'Fri'}
+};
+const HOTELS_GEO = {
+ lahinchH:{la:52.933,lo:-9.345,n:'Lahinch Coast Hotel'},
+ killarney:{la:52.059,lo:-9.506,n:'Killarney base'},
+ shannon:{la:52.702,lo:-8.925,n:'Shannon Airport ✈'}
+};
+const DAYCOL = {1:'#6fb6e8',2:'#74c247',3:'#e9cf8a',4:'#e7625f',5:'#b794e8'};
+
+/* rooming */
+const ROOMS = {
+ lahinch:{name:'Lahinch Coast Hotel & Suites',dates:'Mon Jul 6 → Wed Jul 8 · 2 nights',rooms:[
+   ['Deluxe 2-bed suite',['Nate','Davis','Nick','Tanner']],
+   ['Double room',['Fraser']],
+   ['1-bed suite',['Rick','Patrick']],
+   ['Twin room',['Domenic','Ben']],
+   ['Deluxe twin',['Tate','Christian']],
+   ['Deluxe double',['Ryan']]
+ ]},
+ killarney:{name:'Killarney — Plaza Hotel + “Mountain Dew” Airbnb',dates:'Wed Jul 8 → Sat Jul 11 · 3 nights',rooms:[
+   ['Plaza · family rm',['Nick','Davis']],
+   ['Plaza · family rm',['Nate','Tanner']],
+   ['Plaza · family rm',['Christian','Tate']],
+   ['Airbnb · room',['Domenic','Ben']],
+   ['Airbnb · room',['Ryan']],
+   ['Airbnb · room',['Fraser']]
+ ]}
+};
+
+/* 5 hire cars · driver, passengers, note */
+const CARS = [
+ ['Ben','Domenic','rotates driving with Ryan · Dublin pickup'],
+ ['Fraser','Ryan','rotates driving with Dom'],
+ ['Rick','Patrick','Dublin pickup, Sun'],
+ ['Davis','Nick','Shannon pickup'],
+ ['Tate','Christian, Nate, Tanner','Shannon pickup']
+];
+
+/* weather — typical SW Ireland July, live-upgraded from Open-Meteo when in range */
+const WX_TYP = {
+ mon:{ic:'🌦',hi:65,lo:54,wind:14,rain:45},
+ tue:{ic:'⛅',hi:66,lo:55,wind:12,rain:35},
+ wed:{ic:'🌧',hi:63,lo:53,wind:19,rain:55},
+ thu:{ic:'🌤',hi:67,lo:55,wind:11,rain:30},
+ fri:{ic:'⛅',hi:65,lo:54,wind:16,rain:42}
+};
+const WX_META = {
+ mon:{date:'2026-07-06',courses:'Doolin P&P · Spanish Point',tip:'Soft evening air with a passing shower or two — grand for a twilight links round. Sunset isn\'t until 9:50pm.'},
+ tue:{date:'2026-07-07',courses:'Doonbeg · Lahinch',tip:'Best window of the week. You might even catch some sun on the dunes at Lahinch.'},
+ wed:{date:'2026-07-08',courses:'Old Head',tip:'Breeziest day. Old Head sits on an exposed cliff peninsula — bring the waterproofs and an extra layer.'},
+ thu:{date:'2026-07-09',courses:'Tralee · Ballybunnion',tip:'Calmest, brightest morning of the trip. Perfect for the Tralee → Bally double header.'},
+ fri:{date:'2026-07-10',courses:'Dooks · Waterville',tip:'Classic links day — wind off the Atlantic at Waterville. Club up and keep it low.'}
+};
+const WMO={0:'☀️',1:'🌤',2:'⛅',3:'☁️',45:'🌫',48:'🌫',51:'🌦',53:'🌦',55:'🌧',61:'🌧',63:'🌧',65:'⛈',71:'🌨',80:'🌦',81:'🌧',82:'⛈',95:'⛈',96:'⛈',99:'⛈'};
+let WX_LIVE=null; // filled by fetch
+
+/* ================= STATE ================= */
+const KEY='ireland2026';
+let store = JSON.parse(localStorage.getItem(KEY)||'{}');
+if(!store.todo) store.todo={};
+let you = store.you||null;
+let tab = 'sched';
+let activeDay = 'mon';
+function save(){store.you=you;localStorage.setItem(KEY,JSON.stringify(store));}
+
+/* ================= HELPERS ================= */
+const $=s=>document.querySelector(s);
+const el=(t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e;};
+function initials(n){return n.slice(0,2).toUpperCase();}
+function myGroup(course){ // returns group index (0-2) you're in, or -1
+  if(!you||!TEE[course])return -1;
+  return TEE[course].findIndex(g=>g[1].includes(you));
+}
+
+/* ================= TABS ================= */
+const TABS=[['sched','📅','Schedule'],['courses','⛳','Courses'],['map','🗺','Map'],['weather','🌤','Weather'],['pack','🎒','Pack']];
+function renderTabs(){
+  const w=$('#tabs');w.innerHTML='';
+  TABS.forEach(([id,e,l])=>{
+    const t=el('div','tab'+(tab===id?' on':''),`<span class="e">${e}</span>${l}`);
+    t.onclick=()=>{tab=id;render();window.scrollTo({top:0,behavior:'smooth'});};
+    w.appendChild(t);
+  });
+}
+
+/* ================= COUNTDOWN ================= */
+const FIRST_TEE=new Date('2026-07-06T19:16:00');
+const TRIP_END=new Date('2026-07-11T18:00:00');
+function bannerEvent(now){
+  // build flat list of golf events with datetimes
+  const map={mon:'2026-07-06',tue:'2026-07-07',wed:'2026-07-08',thu:'2026-07-09',fri:'2026-07-10',sat:'2026-07-11'};
+  const evs=[];
+  DAYS.forEach(d=>{ d.items.forEach(it=>{
+    if(it.course && it.t!=='—'){
+      let [hh,mm]=it.t.split(':'); hh=+hh; mm=+mm;
+      if(it.ap==='PM'&&hh!==12)hh+=12; if(it.ap==='AM'&&hh===12)hh=0;
+      const dt=new Date(map[d.key]+'T'+String(hh).padStart(2,'0')+':'+String(mm).padStart(2,'0')+':00');
+      evs.push({dt,end:new Date(dt.getTime()+4.5*3600*1000),name:COURSE[it.course].name,day:d.key});
+    }
+  });});
+  evs.sort((a,b)=>a.dt-b.dt);
+  for(const e of evs){ if(now>=e.dt&&now<=e.end)return{...e,state:'now'}; }
+  for(const e of evs){ if(now<e.dt)return{...e,state:'next'}; }
+  return null;
+}
+function renderCD(){
+  const cd=$('#cd');const now=new Date();
+  if(now<FIRST_TEE){
+    const diff=FIRST_TEE-now; const d=Math.floor(diff/864e5),h=Math.floor(diff%864e5/36e5),m=Math.floor(diff%36e5/6e4);
+    cd.className='';cd.innerHTML=`<span class="crest">☘</span>
+      <div class="seg"><b>${d}</b><small>Days</small></div>
+      <div class="seg"><b>${h}</b><small>Hrs</small></div>
+      <div class="seg"><b>${m}</b><small>Min</small></div>
+      <div class="seg"><small style="margin-top:0">until<br>1st tee</small></div>`;
+  } else if(now<=TRIP_END){
+    cd.className='live';cd.innerHTML=`<span class="crest">⛳</span><div class="seg" style="align-items:flex-start"><b style="font-size:16px">We\'re in Ireland</b><small style="margin-top:4px">Tour in progress · play well, lads</small></div>`;
+  } else {
+    cd.className='';cd.innerHTML=`<span class="crest">🏆</span><div class="seg" style="align-items:flex-start"><b style="font-size:16px">That\'s a wrap</b><small style="margin-top:4px">Until the next one</small></div>`;
+  }
+}
+
+/* ================= SCHEDULE ================= */
+function renderPills(){
+  const wrap=$('#pillwrap');wrap.innerHTML='';
+  if(tab!=='sched')return;
+  const p=el('div','pills');
+  DAYS.forEach(d=>{
+    const pl=el('div','pill'+(activeDay===d.key?' on':''),`${d.dow}<small>${d.date.replace('Jul ','Jul ')}</small>`);
+    pl.onclick=()=>{activeDay=d.key;render();};
+    p.appendChild(pl);
+  });
+  wrap.appendChild(p);
+}
+function teeBlock(course){
+  const wrap=el('div','tee');
+  TEE[course].forEach((g,i)=>{
+    const mine=you&&g[1].includes(you);
+    const players=g[1].map(p=>`<span class="pl${p===you?' you':''}">${p}</span>`).join(' · ');
+    const row=el('div','grp'+(mine?' mine':''),
+      `<div class="gt">${g[0]}</div><div class="gp">${players}</div><div class="gl">${mine?'YOU':'G'+(i+1)}</div>`);
+    wrap.appendChild(row);
+  });
+  const cad=el('div','caddie',`🎒 <b>Caddies:</b> ${CADDIE[course]}`);
+  wrap.appendChild(cad);
+  return wrap;
+}
+function renderSchedule(){
+  const c=$('#content');c.innerHTML='';
+  // now banner
+  const be=bannerEvent(new Date());
+  if(be){
+    const txt = be.state==='now'
+      ? `<b>On the course now</b> — ${be.name}. ${you?'Find your group below.':''}`
+      : `<b>Up next:</b> ${be.name}`;
+    const nb=el('div','nowbar',`<span class="dot"></span><div><div>${txt}</div><div class="s">${be.state==='now'?'Live round in progress':be.dt.toLocaleString('en-IE',{weekday:'short',hour:'numeric',minute:'2-digit'})+' Irish time'}</div></div>`);
+    c.appendChild(nb);
+    if(be.day&&be.state==='now'){activeDay=be.day;}
+  }
+  const d=DAYS.find(x=>x.key===activeDay);
+  const sec=el('div','day');
+  sec.appendChild(el('div','dhead',`<span class="big">${d.title}</span><span class="dd">${d.dow} · ${d.date}</span>`));
+  sec.appendChild(el('div','dsub',d.sub));
+  sec.appendChild(el('div','dhotel',`🛏 <b>${d.hotel}</b>`));
+  const list=el('div','list');
+  d.items.forEach(it=>{
+    const card=el('div','card'+(it.k==='golf'&&it.course&&TEE[it.course]?' golf':''));
+    let badges='';
+    if(it.course){
+      const C=COURSE[it.course];
+      badges=`<div class="badges">
+        <span class="bdg rank">${C.rank} ${C.rankl}</span>
+        ${C.meta.slice(0,2).map(m=>`<span class="bdg">${m}</span>`).join('')}
+        ${myGroup(it.course)>=0?'<span class="bdg mine">★ your group ↓</span>':''}
+      </div>`;
+    }
+    card.innerHTML=`<div class="row">
+       <div class="tc"><div class="tm">${it.t}</div><div class="ap">${it.ap}</div></div>
+       <div class="em">${it.e}</div>
+       <div class="bd"><div class="ti">${it.ti}</div><div class="su">${it.su}</div>${badges}</div>
+     </div>`;
+    if(it.course&&TEE[it.course]) card.querySelector('.bd').appendChild(teeBlock(it.course));
+    list.appendChild(card);
+  });
+  sec.appendChild(list);
+  c.appendChild(sec);
+}
+
+/* ================= COURSES ================= */
+function renderCourses(){
+  const c=$('#content');c.innerHTML='';
+  const intro=el('div','dsub','8 championship links plus a cliffside pitch & putt. Tap your name up top and each course shows your exact tee time.');
+  intro.style.padding='4px 2px 14px';c.appendChild(intro);
+  COURSE_CARDS.forEach(id=>{
+    const C=COURSE[id];const grp=myGroup(id);
+    const card=el('div','coursecard');
+    let yours;
+    if(grp>=0){
+      const g=TEE[id][grp];
+      yours=`<div class="cc-yours"><span>⛳</span><div>You're out at <span class="cy-t">${g[0]}</span> with ${g[1].filter(p=>p!==you).join(', ')}</div></div>`;
+    } else {
+      yours=`<div class="cc-yours none"><span>🏌️</span><div>Tap your name above to see your tee time here</div></div>`;
+    }
+    const holes = C.holes&&C.holes.length ? `<div class="holes">${C.holes.map(h=>
+      `<div class="hole"><div class="hn"><b>${h[0]}</b><small>hole</small></div><div class="ht"><b>${h[1]}.</b> ${h[2]}</div></div>`).join('')}</div>` : '';
+    card.innerHTML=`
+      <div class="cc-banner" style="background:linear-gradient(135deg,${C.g1},${C.g2})">
+        <div class="bz">
+          <div><h3>${C.name}</h3><div class="loc">📍 ${C.loc}</div></div>
+          <div class="cc-rank"><b>${C.rank}</b><small>${C.rankl}</small></div>
+        </div>
+      </div>
+      <div class="cc-body">
+        <div class="cc-meta">${C.meta.map(m=>`<span class="bdg gold">${m}</span>`).join('')}</div>
+        <p class="cc-quote">${C.quote}</p>
+        ${TEE[id]?yours:''}
+        ${holes}
+        <p class="cc-note">${C.note}</p>
+        <div class="cc-foot">
+          <a class="g" href="https://www.google.com/maps/search/${encodeURIComponent(C.name+' Golf '+C.loc)}" target="_blank" rel="noopener">🗺 Directions</a>
+          <a href="${C.web}" target="_blank" rel="noopener">🌐 Course site</a>
+        </div>
+      </div>`;
+    c.appendChild(card);
+  });
+}
+
+/* ================= MAP ================= */
+let mapSel=null;
+function project(la,lo,W,H){
+  const lo0=-10.45,lo1=-8.35,la0=51.45,la1=53.10;
+  const x=(lo-lo0)/(lo1-lo0)*W;
+  const y=(la1-la)/(la1-la0)*H;
+  return [x,y];
+}
+function renderMap(){
+  const c=$('#content');c.innerHTML='';
+  c.appendChild(el('div','dsub','Eight links down the Wild Atlantic Way. Numbered in play order — tap a pin or a row.')).style.padding='4px 2px 12px';
+  const W=340,H=430;
+  let svg=`<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">
+   <defs>
+     <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+       <stop offset="0" stop-color="#0c2230"/><stop offset="1" stop-color="#0a1a22"/>
+     </linearGradient>
+     <linearGradient id="land" x1="0" y1="0" x2="1" y2="1">
+       <stop offset="0" stop-color="#14271a"/><stop offset="1" stop-color="#1c331f"/>
+     </linearGradient>
+   </defs>
+   <rect width="${W}" height="${H}" fill="url(#sea)"/>`;
+  // stylised SW Ireland landmass (decorative, peninsulas to the SW)
+  svg+=`<path d="M ${W} 70 L 250 64 Q 215 70 205 95 L 235 120 Q 250 140 235 150 L 150 150
+     Q 120 150 132 172 L 196 188 Q 214 196 196 206 L 96 206 Q 70 206 86 226 L 168 240
+     Q 184 248 168 258 L 70 262 Q 44 264 60 282 L 150 300 L 30 300 L 18 322 L 132 330
+     Q 96 348 150 352 L ${W} 360 L ${W} ${H} L 0 ${H} L 0 0 L ${W} 0 Z"
+     fill="url(#land)" stroke="#2c4730" stroke-width="1.2" opacity=".95"/>`;
+  // route line in play order through course pins
+  const pts=COURSE_ORDER.map(id=>project(GEO[id].la,GEO[id].lo,W,H));
+  svg+=`<polyline points="${pts.map(p=>p.join(',')).join(' ')}" fill="none" stroke="#d8b15a" stroke-width="1.4" stroke-dasharray="3 4" opacity=".55"/>`;
+  // hotel/airport pins
+  Object.values(HOTELS_GEO).forEach(h=>{const[x,y]=project(h.la,h.lo,W,H);
+    svg+=`<g><rect x="${x-3}" y="${y-3}" width="6" height="6" rx="1.5" fill="#c9b07c" opacity=".9"/>
+      <text x="${x+7}" y="${y+3}" font-size="7" fill="#c9b07c" font-family="Outfit" font-weight="700">${h.n}</text></g>`;
+  });
+  // course pins
+  COURSE_ORDER.forEach((id,i)=>{
+    const[x,y]=project(GEO[id].la,GEO[id].lo,W,H);const col=DAYCOL[GEO[id].d];
+    const sel=mapSel===id;
+    svg+=`<g class="mpin${sel?' sel':''}" onclick="mapPick('${id}')">
+      <circle cx="${x}" cy="${y}" r="${sel?12:10}" fill="${col}" stroke="#0a0e0b" stroke-width="${sel?2.5:1.5}"/>
+      <text class="num" x="${x}" y="${y+3.2}" text-anchor="middle">${i+1}</text>
+      <text class="lab" x="${x}" y="${y-14}" text-anchor="middle">${COURSE[id].name}</text>
+    </g>`;
+  });
+  // compass
+  svg+=`<g transform="translate(40,392)" opacity=".7"><circle r="15" fill="none" stroke="#34452f" stroke-width="1"/>
+    <path d="M0,-12 L4,0 L0,12 L-4,0 Z" fill="#d8b15a"/><text y="-18" text-anchor="middle" font-size="8" fill="#94a389" font-weight="700">N</text></g>`;
+  svg+=`<text x="${W-8}" y="${H-10}" text-anchor="end" font-size="9" fill="#3fae6f" font-family="Playfair Display" font-style="italic" opacity=".7">Wild Atlantic Way</text>`;
+  svg+='</svg>';
+  const mw=el('div','mapwrap',svg);c.appendChild(mw);
+  // legend
+  const leg=el('div','mlegend');
+  [[1,'Mon'],[2,'Tue'],[3,'Wed'],[4,'Thu'],[5,'Fri']].forEach(([d,l])=>{
+    leg.appendChild(el('span',null,`<i style="background:${DAYCOL[d]}">${d<6?'':''}</i>${l}`));
+  });
+  leg.appendChild(el('span',null,`<i style="background:#c9b07c;border-radius:3px">■</i>Stay / airport`));
+  c.appendChild(leg);
+  // panel
+  const panel=el('div',null);panel.id='mpanel';
+  COURSE_ORDER.forEach((id,i)=>{
+    const C=COURSE[id];const G=GEO[id];const col=DAYCOL[G.d];
+    const row=el('div','mrow'+(mapSel===id?'':''),
+      `<div class="mn" style="background:${col}">${i+1}</div>
+       <div class="mt"><b>${C.name}</b><div class="ms">${C.loc.split(',')[1]||C.loc} · ${C.rank} ${C.rankl}</div></div>
+       <div class="md">${G.dl}</div>`);
+    row.style.borderColor = mapSel===id?'var(--gold)':'';
+    row.onclick=()=>{mapPick(id);};
+    panel.appendChild(row);
+  });
+  c.appendChild(panel);
+  renderLogistics(c);
+}
+function mapPick(id){mapSel=mapSel===id?null:id;renderMap();
+  const r=[...document.querySelectorAll('.mrow')];const i=COURSE_ORDER.indexOf(id);
+  if(mapSel&&r[i])r[i].scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+/* ================= LOGISTICS (rooms + cars, shown under the map) ================= */
+function renderLogistics(c){
+  c.appendChild(secTitle('Where we sleep'));
+  Object.values(ROOMS).forEach(H=>{
+    const card=el('div','hotelcard');
+    const nights=H.dates.match(/\d nights?/)[0];
+    card.innerHTML=`<div class="hh"><b>${H.name}</b><span class="nt">${nights}</span></div><div class="hd">${H.dates}</div>`;
+    const rooms=el('div','rooms');
+    H.rooms.forEach(([t,ppl])=>{
+      const mine=you&&ppl.includes(you);
+      rooms.appendChild(el('div','rm'+(mine?' mine':''),
+        `<div class="rt">${t}</div><div class="rp">${ppl.map(p=>`<span class="${p===you?'you':''}">${p}</span>`).join(' · ')}</div>`));
+    });
+    card.appendChild(rooms);c.appendChild(card);
+  });
+  c.appendChild(secTitle('Rental cars'));
+  const cars=el('div','tbl');
+  cars.appendChild(el('div','trow h',`<div class="c1">Driver</div><div class="c2"></div><div class="c3" style="flex-basis:auto;text-align:left;font-weight:700">Crew</div>`));
+  CARS.forEach(([drv,pax,note])=>{
+    const mine=you&&(drv===you||pax.includes(you));
+    cars.appendChild(el('div','trow'+(mine?' tot':''),`<div class="c1">🚗 ${drv}<div class="sm">${note}</div></div><div class="c2"></div><div class="c3" style="flex-basis:auto;text-align:right;font-weight:600;color:var(--dim)">${pax}</div>`));
+  });
+  c.appendChild(cars);
+  c.appendChild(el('div','menote','5 hire cars across the group. Dom & Ryan rotate driving between two of them. Manual transmission + driving on the left — sort out who\'s comfortable before you land.')).style.padding='6px 4px';
+}
+function secTitle(t){return el('div','sec',t);}
+
+/* ================= WEATHER ================= */
+function wxFor(key){
+  const base=WX_TYP[key];
+  if(WX_LIVE&&WX_LIVE[WX_META[key].date]){
+    const L=WX_LIVE[WX_META[key].date];
+    return {ic:WMO[L.code]||base.ic,hi:Math.round(L.hi),lo:Math.round(L.lo),wind:Math.round(L.wind),rain:L.rain==null?base.rain:Math.round(L.rain),live:true};
+  }
+  return {...base,live:false};
+}
+function fetchWx(){
+  // central SW Ireland point covers Clare→Kerry; Open-Meteo, no key, CORS ok
+  const url='https://api.open-meteo.com/v1/forecast?latitude=52.4&longitude=-9.6'+
+    '&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,wind_speed_10m_max'+
+    '&temperature_unit=fahrenheit&wind_speed_unit=mph&timezone=Europe%2FDublin&start_date=2026-07-06&end_date=2026-07-10';
+  fetch(url).then(r=>r.json()).then(d=>{
+    if(!d.daily||!d.daily.time)return;
+    WX_LIVE={};
+    d.daily.time.forEach((t,i)=>{WX_LIVE[t]={code:d.daily.weather_code[i],hi:d.daily.temperature_2m_max[i],lo:d.daily.temperature_2m_min[i],rain:d.daily.precipitation_probability_max[i],wind:d.daily.wind_speed_10m_max[i]};});
+    if(tab==='weather')renderWeather();
+  }).catch(()=>{});
+}
+function renderWeather(){
+  const c=$('#content');c.innerHTML='';
+  const anyLive=WX_LIVE&&Object.keys(WX_LIVE).length;
+  c.appendChild(secTitle('Forecast · golf days'));
+  const lead=el('div','dsub',anyLive
+    ? 'Live forecast for the southwest coast, pulled fresh from Open-Meteo.'
+    : 'Typical early-July averages for Clare & Kerry. Upgrades to a live forecast automatically once the trip is inside the 16-day window.');
+  lead.style.padding='0 2px 12px';c.appendChild(lead);
+  ['mon','tue','wed','thu','fri'].forEach(k=>{
+    const m=WX_META[k],w=wxFor(k);
+    const dd=DAYS.find(x=>x.key===k);
+    const card=el('div','wxcard');
+    card.innerHTML=`
+      <div class="wx-l">
+        <div class="wx-ic">${w.ic}</div>
+        <div class="wx-day"><b>${dd.dow}</b><small>${dd.date}</small></div>
+      </div>
+      <div class="wx-m">
+        <div class="wx-co">${m.courses}</div>
+        <div class="wx-stats">
+          <span><b>${w.hi}°</b><small>hi</small></span>
+          <span><b>${w.lo}°</b><small>lo</small></span>
+          <span><b>${w.wind}</b><small>mph wind</small></span>
+          <span><b>${w.rain}%</b><small>rain</small></span>
+        </div>
+        <div class="wx-tip">${m.tip}</div>
+      </div>${w.live?'<div class="wx-live">LIVE</div>':''}`;
+    c.appendChild(card);
+  });
+  // links reality block
+  const note=el('div','wxsum');
+  note.innerHTML=`<b>☘ The links golf reality</b>
+    Southwest Ireland in July is mild and green — highs in the mid-60s°F, lows around 54°. The constant isn't temperature, it's <b>wind off the Atlantic</b> and <b>showers that blow through fast</b>. You'll likely get sun, rain and a gale in the same round. Daylight is enormous (sunrise ~5:30am, sunset ~9:50pm), so there's always time for a few more holes. Pack waterproofs, a warm layer and a spare glove — and don't let a squall ruin a good day.`;
+  c.appendChild(note);
+  c.appendChild(secTitle('Forecast accuracy'));
+  c.appendChild(el('div','menote',anyLive
+    ? 'Showing the latest Open-Meteo run. Re-open the tab any day to refresh.'
+    : 'No live data for these dates yet (forecasts reach ~16 days out). Showing climate normals as a planning guide.')).style.padding='2px 4px';
+}
+
+/* ================= PACK ================= */
+const PACK=[
+ ['🪪','Passport + boarding passes','Check expiry — needs 6 months validity'],
+ ['🔌','EU/UK plug adapter (Type G)','Ireland uses the UK 3-pin plug'],
+ ['💶','Some euros + a card with no FX fees','Pro shops & pubs — tap works everywhere'],
+ ['🧢','Rain gear & layers','It\'s links golf in Ireland. It will blow. Waterproofs are not optional.'],
+ ['🧤','Two gloves (they get wet)','And plenty of spare balls — the dunes eat them'],
+ ['👟','Spikes + a second dry pair of shoes','36-hole days mean wet feet'],
+ ['🏌️','Travel bag / club insurance','Confirm clubs are on every flight segment'],
+ ['🧴','Sunscreen (yes, really)','Long July days, 9:50pm sunsets'],
+ ['🎒','Cash for caddies','Tip on top of the fee — bring small notes'],
+ ['📱','Download offline maps of Clare & Kerry','Signal gets thin out on the peninsulas'],
+ ['💊','Advil / hangover kit','Six days, twelve lads. You know.'],
+ ['☘️','A good attitude for blind tee shots','Half these courses you can\'t see the green. Embrace it.']
+];
+function renderPack(){
+  const c=$('#content');c.innerHTML='';
+  c.appendChild(secTitle('Packing & prep'));
+  const done=PACK.filter((_,i)=>store.todo['p'+i]).length;
+  const prog=el('div','tprog',`<div class="bar"><div class="fill" style="width:${Math.round(done/PACK.length*100)}%"></div></div><div class="lbl">${done} of ${PACK.length} sorted</div>`);
+  c.appendChild(prog);
+  PACK.forEach((p,i)=>{
+    const k='p'+i;const dn=store.todo[k];
+    const t=el('div','todo'+(dn?' done':''),
+      `<div class="cb">${dn?'✓':''}</div><div><div class="tt">${p[0]} ${p[1]}</div><div class="nt">${p[2]}</div></div>`);
+    t.onclick=()=>{store.todo[k]=!store.todo[k];save();renderPack();};
+    c.appendChild(t);
+  });
+}
+
+/* ================= NAME SHEET ================= */
+function openSheet(){
+  const g=$('#namegrid');g.innerHTML='';
+  LADS.forEach(n=>{
+    const nm=el('div','nm'+(you===n?' on':''),`<div class="av">${initials(n)}</div><div class="nn">${n}</div>`);
+    nm.onclick=()=>setYou(n);
+    g.appendChild(nm);
+  });
+  $('#sheetbg').classList.remove('hidden');$('#sheet').classList.remove('hidden');
+}
+function closeSheet(){$('#sheetbg').classList.add('hidden');$('#sheet').classList.add('hidden');}
+function setYou(n){you=n;save();closeSheet();renderYou();render();}
+function renderYou(){
+  if(you){
+    $('#youname').textContent='You\'re '+you;
+    const g=COURSE_ORDER.map(id=>myGroup(id)>=0?TEE[id][myGroup(id)][0]:null).filter(Boolean).length;
+    $('#youhint').textContent=`Your foursome is highlighted across all ${g} rounds · tap to change`;
+    $('#youbar').querySelector('.ic').textContent='⛳';
+  } else {
+    $('#youname').textContent='Who are you?';
+    $('#youhint').textContent='Tap to pick your name — your foursome lights up all week';
+  }
+}
+
+/* ================= RENDER ================= */
+function render(){
+  renderTabs();renderPills();
+  if(tab==='sched')renderSchedule();
+  else if(tab==='courses')renderCourses();
+  else if(tab==='map')renderMap();
+  else if(tab==='weather'){renderWeather();if(!WX_LIVE)fetchWx();}
+  else if(tab==='pack')renderPack();
+}
+$('#youbar').onclick=openSheet;
+renderYou();renderCD();render();
+setInterval(renderCD,30000);
+setInterval(()=>{if(tab==='sched')renderSchedule();},60000);
+</script>
+</body>
+</html>
