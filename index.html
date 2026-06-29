@@ -162,6 +162,12 @@ a{color:inherit}
 .cc-foot{display:flex;gap:8px;margin-top:13px}
 .cc-foot a{flex:1;text-align:center;background:var(--card2);border:1px solid var(--line);border-radius:11px;padding:9px;font-size:12px;font-weight:700;color:var(--cream);text-decoration:none}
 .cc-foot a.g{color:var(--emer);border-color:rgba(47,208,138,.3)}
+.nlubtn{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;margin-top:9px;
+  background:linear-gradient(135deg,rgba(231,98,95,.18),rgba(231,98,95,.05));border:1px solid rgba(231,98,95,.42);
+  color:#f0a8a6;border-radius:12px;padding:11px;font-size:12.5px;font-weight:700;text-decoration:none;transition:.15s}
+.nlubtn:hover{color:#fff;border-color:rgba(231,98,95,.7)}
+.nlubtn .pl{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;
+  background:#e7625f;color:#fff;font-size:9px;padding-left:1px}
 
 /* ---------- map ---------- */
 .mapwrap{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:8px;margin-top:2px;overflow:hidden}
@@ -516,6 +522,16 @@ const DAYS = [
 
 const COURSE_ORDER = ['spanish','doonbeg','lahinch','oldhead','tralee','bally','dooks','waterville'];
 const COURSE_CARDS = ['doolin','spanish','doonbeg','lahinch','oldhead','tralee','bally','dooks','waterville'];
+/* No Laying Up — "Tourist Sauce" Ireland (Season 4) episodes, verified video IDs */
+const NLU = {
+ doolin:'https://www.youtube.com/watch?v=48qfJ4wlmHI',   // Ep 1 — Doolin & Doonbeg
+ doonbeg:'https://www.youtube.com/watch?v=48qfJ4wlmHI',  // Ep 1 — Doolin & Doonbeg
+ lahinch:'https://www.youtube.com/watch?v=HNtFH1F-uiI',  // Ep 2
+ bally:'https://www.youtube.com/watch?v=o143qDGeA7w',    // Ep 4
+ dooks:'https://www.youtube.com/watch?v=xkIe-20qjcQ',    // Ep 5
+ waterville:'https://www.youtube.com/watch?v=FnbX4c4AIe4',// Ep 6
+ tralee:'https://www.youtube.com/watch?v=wJK6RfN-F-o'    // Ep 7
+};
 /* map: which day each course is played + lat/lon */
 const GEO = {
  spanish:{la:52.846,lo:-9.443,d:1,dl:'Mon'}, doonbeg:{la:52.731,lo:-9.527,d:2,dl:'Tue'},
@@ -743,6 +759,7 @@ function renderCourses(){
           <a class="g" href="https://www.google.com/maps/search/${encodeURIComponent(C.name+' Golf '+C.loc)}" target="_blank" rel="noopener">🗺 Directions</a>
           <a href="${C.web}" target="_blank" rel="noopener">🌐 Course site</a>
         </div>
+        ${NLU[id]?`<a class="nlubtn" href="${NLU[id]}" target="_blank" rel="noopener"><span class="pl">▶</span> Watch the No Laying Up episode</a>`:''}
       </div>`;
     cc.appendChild(card);
   });
